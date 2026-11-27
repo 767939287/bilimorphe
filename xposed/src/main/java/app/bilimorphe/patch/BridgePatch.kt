@@ -56,6 +56,26 @@ object BridgePatch : Patch(
                 .invoke(null, app)
             Logger.i("cross process preferences ready")
         }.onFailure { Logger.e("cross process preferences failed", it) }
+
+        enableTemporaryDefaults()
+    }
+
+    /**
+     * Temporary switch used to validate the pipeline before a settings UI exists.
+     * Remove once the settings screen is ported.
+     */
+    private fun enableTemporaryDefaults() {
+        runCatching {
+            val settings = Class.forName("app.revanced.bilibili.settings.Settings", true, moduleLoader)
+            for (name in listOf("UnlockAreaLimit")) {
+                val setting = settings.getField(name).get(null) ?: continue
+                val isDefault = setting.javaClass.getMethod("isSetToDefault").invoke(setting) as Boolean
+                if (isDefault) {
+                    setting.javaClass.getMethod("save", Any::class.java).invoke(setting, true)
+                    Logger.i("default enabled: $name")
+                }
+            }
+        }.onFailure { Logger.e("temporary defaults failed", it) }
     }
 
     private fun injectHostClassLoader(hostLoader: ClassLoader) {
