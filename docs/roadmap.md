@@ -47,3 +47,23 @@
 - 本地：JDK 21、`/opt/android-sdk`（platform 37.2）、Gradle 9.9.2、代理 `192.168.50.15:1080`
 - 构建：`./gradlew :xposed:assembleDebug`；`local.properties` 写 `sdk.dir=/opt/android-sdk`
 - 已知坑：`.gitignore` 用 `build/`；`android.builtInKotlin=false` + `android.newDsl=false`；`compileSdkVersion("android-37.2")`
+
+## 决策记录（ADR）
+
+### ADR-001：不直接复用修改版反编译代码，一律重写
+
+- **日期**：2026-11-27
+- **背景**：1.24~1.28 源码闭源，只有修改版 APK（R8 混淆，无 mapping.txt）
+- **选项**：
+  - A. 反编译 `classes35.dex` 后整理使用
+  - B. 只把反编译结果当阅读材料，落地代码自己写
+- **决定**：选 B
+- **理由**：
+  1. **后期维护**：反编译代码类名混淆、无注释，B 站版本更新后无法适配
+  2. **许可证**：二次打包者的改动来源不清；1.23.3 官方源码（GPL-3.0）才是干净来源
+  3. **架构一致**：我们的 DexKit hook 点集中在自己的 patch 类，升级时只改查询条件
+- **落地方式**：
+  1. jadx 反编译目标功能 → 读懂调用的 API 路径、参数、时序
+  2. 按本项目代码风格重写（清晰命名 + 注释 + 设置项）
+  3. hook 点用 DexKit 按特征定位，不依赖 smali 注入
+- **例外**：1.23.3 源码本身就是可读实现，优先用它作为重写素材（优于反编译产物）
