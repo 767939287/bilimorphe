@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "app.bilimorphe"
-    compileSdk = 37
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "app.bilimorphe"

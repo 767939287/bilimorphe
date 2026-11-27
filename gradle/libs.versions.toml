@@ -2,7 +2,7 @@
 agp = "9.4.1"
 dexkit = "2.3.0"
 xposed = "82"
-libxposed = "102.0.0"
+libxposed = "101.0.1"
 
 [libraries]
 dexkit = { group = "org.luckypray", name = "dexkit", version.ref = "dexkit" }
