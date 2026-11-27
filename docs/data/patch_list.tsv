@@ -1,0 +1,84 @@
+FILE	OBJECT	NAME	DESC
+ads/patch/UpRcmdAdsPatch.kt	UpRcmdAdsPatch	Block up recommend ads	屏蔽UP主推荐广告
+layout/patch/HideFollowButtonPatch.kt	HideFollowButtonPatch	Hide follow button	不显示关注按钮
+layout/patch/RemoveVipSectionPatch.kt	RemoveVipSectionPatch	Remove vip section	移除我的页面大会员横幅
+misc/config/patch/ConfigPatch.kt	ConfigPatch	Config	Config hook
+misc/copy/patch/CopyEnhancePatch.kt	CopyEnhancePatch	Copy enhance	自由复制补丁
+misc/darkswitch/patch/DarkSwitchPatch.kt	DarkSwitchPatch	Dark switch	我的页面深色模式切换弹框确认
+misc/drawer/patch/DrawerPatch.kt	DrawerPatch	Drawer	我的页面移至侧滑栏辅助补丁
+misc/integrations/patch/BLKVPatch.kt	BLKVPatch	Blkv	集成BLKV
+misc/integrations/patch/BrotliPatch.kt	BrotliPatch	Brotli	集成Brotli
+misc/integrations/patch/ConfigPatch.kt	ConfigPatch	Config integration	集成获取Config方法
+misc/integrations/patch/DpiPatch.kt	DpiPatch	Dpi	自定义dpi辅助补丁
+misc/integrations/patch/IntegrationsPatch.kt	IntegrationsPatch	Integrations	
+misc/integrations/patch/LibBiliPatch.kt	LibBiliPatch	Lib bili	查找网络请求签名及获取appKey方法
+misc/integrations/patch/MainActivityPatch.kt	MainActivityPatch	Main activity patch	代理部分MainActivity方法补丁
+misc/integrations/patch/ModifyModifierPatch.kt	ModifyModifierPatch	Modify modifier	修改类或类成员修饰符，方便操作
+misc/integrations/patch/NormalizeRecyclerViewPatch.kt	NormalizeRecyclerViewPatch	Anti RecyclerView obfuscation	
+misc/integrations/patch/ProtoBufPrintPatch.kt	ProtoBufPrintPatch	ProtoBuf print	使 ProtoBuf toString 打印更具可读性
+misc/json/patch/JSONPatch.kt	JSONPatch	Json	通用阿里Fastjson反序列化数据修改
+misc/json/patch/PegasusPatch.kt	PegasusPatch	Pegasus hook	首页推荐流hook
+misc/notification/patch/MusicNotificationPatch.kt	MusicNotificationPatch	Music notification	原生音乐通知样式
+misc/okhttp/patch/OkHttpPatch.kt	OkHttpPatch	OkHttp	OkHttp网络请求响应Hook
+misc/other/patch/AppendExtraSearchTypePatch.kt	AppendExtraSearchTypePatch	Search type	附加更多搜索类型补丁
+misc/other/patch/AppendSignatureInfoPatch.kt	AppendSignatureInfoPatch	Append signature info for LSPatch	meta-data 附加原始签名信息，允许 LSPatch 及类似物处理过的 APP 获取本 APP 的原始签名
+misc/other/patch/AutoLikePatch.kt	AutoLikePatch	Auto like	视频自动点赞补丁
+misc/other/patch/BLRoutePatch.kt	BLRoutePatch	BL route intercept	哔哩哔哩页面路由修改
+misc/other/patch/BLogPatch.kt	BLogPatch	BLog	放宽日志打印级别
+misc/other/patch/BiliLayoutAdjustPatch.kt	BiliLayoutAdjustPatch	Bili adjust layout (codes)	调整部分布局UI
+misc/other/patch/BiliLayoutAdjustResourcesPatch.kt	BiliLayoutAdjustResourcesPatch	Bili adjust layout (resources)	调整部分布局UI
+misc/other/patch/BiliLibraryPatch.kt	BiliLibraryPatch	Bili library patch	so库修补（目前绕过了签名校验）
+misc/other/patch/BiliSettingPreferenceLayoutPatch.kt	BiliSettingPreferenceLayoutPatch	Fix app setting preference layout	APP设置部分页面字体大小不统一修复
+misc/other/patch/BlockThaiCommentPatch.kt	BlockThaiCommentPatch	Block thai comment	禁止泰区评论
+misc/other/patch/CacheRedirectPatch.kt	CacheRedirectPatch	Cache redirect	缓存行为重定向，允许外部工具直接下载
+misc/other/patch/ChannelModelFixPatch.kt	ChannelModelFixPatch	Channel model fix	频道相关 model 类构造修复(官方 BUG)
+misc/other/patch/CrashHandlerPatch.kt	CrashHandlerPatch	Crash handler	崩溃日志记录
+misc/other/patch/CustomSplashPatch.kt	CustomSplashPatch	Custom splash	自定义启动图
+misc/other/patch/FakeNotInMultiWindowPatch.kt	FakeNotInMultiWindowPatch	Fake not in multi window mode	播放页伪装未处于多窗口模式
+misc/other/patch/FavFolderDialogPatch.kt	FavFolderDialogPatch	Forbid auto subscribe	禁止自动勾选订阅合集
+misc/other/patch/ForbidLiveRoomAutoFloatPatch.kt	ForbidLiveRoomAutoFloatPatch	Forbid live room auto float	禁止直播间点小窗播放时自动开启“播放被中断时自动小窗播放”
+misc/other/patch/ForbidLiveRoomSlideLeftPatch.kt	ForbidLiveRoomSlideLeftPatch	Forbid live room slide left	禁止直播间向左滑动弹出抽屉
+misc/other/patch/ForbidSwitchLiveRoomPatch.kt	ForbidSwitchLiveRoomPatch	Forbid switch live room	禁止上下滑动切换直播间
+misc/other/patch/ForceCommentNavigablePatch.kt	ForceCommentNavigablePatch	Force comment time navigable	允许分P及交互视频评论时间点可点击
+misc/other/patch/InjectDataProviderPatch.kt	InjectDataProviderPatch	Inject DocumentsProvider	注入可访问私有目录的 DocumentsProvider
+misc/other/patch/InjectMoreSchemePatch.kt	InjectMoreSchemePatch	Inject more scheme	向 AndroidManifest.xml 注入更多可处理的 deep link
+misc/other/patch/KeepDataWhenUninstallPatch.kt	KeepDataWhenUninstallPatch	Keep data when uninstall	APP卸载时保留数据
+misc/other/patch/LiveRoomPatch.kt	LiveRoomPatch	Disable live room double click	禁用直播间双击点赞
+misc/other/patch/MakeTextSelectablePatch.kt	MakeTextSelectablePatch	Make text selectable	为部分 TextView 添加可选择属性，方便复制
+misc/other/patch/NoManageSpaceActivityPatch.kt	NoManageSpaceActivityPatch	Remove managerSpaceActivity	移除管理存储空间入口
+misc/other/patch/NotificationPatch.kt	NotificationPatch	Notification icon	通知图标修复
+misc/other/patch/NumberFormatPatch.kt	NumberFormatPatch	Number format	数字格式化补丁
+misc/other/patch/PerAppLanguagePatch.kt	PerAppLanguagePatch	Per app language	适配 Android 13 按应用设定语言特性，允许单独设置本 APP 的语言偏好
+misc/other/patch/PlayManifestCompatibilityPatch.kt	PlayManifestCompatibilityPatch	Play manifest compatibility	Play版 AndroidManifest 声明缺失补全
+misc/other/patch/PublishToFollowingPatch.kt	PublishToFollowingPatch	Disable auto select	禁止自动转到动态
+misc/other/patch/SaveCommentImagePatch.kt	SaveCommentImagePatch	Save comment images	保存评论图片补丁
+misc/other/patch/SharePatch.kt	SharePatch	Share	分享处理相关补丁
+misc/other/patch/TeenagerModePatch.kt	TeenagerModePatch	Teenager mode	禁用青少年模式弹窗
+misc/other/patch/TextFoldPatch.kt	TextFoldPatch	Text fold	文本折叠控制
+misc/other/patch/TrialQualityPatch.kt	TrialQualityPatch	Trial quality	试用画质辅助补丁
+misc/other/patch/UidCopyNoPrefixPatch.kt	UidCopyNoPrefixPatch	Uid copy no prefix	用户空间页复制UID时去掉“UID:”前缀
+misc/other/patch/UpgradePatch.kt	UpgradePatch	Upgrade	自定义更新辅助补丁
+misc/protobuf/patch/CommentReplyUrlPatch.kt	CommentReplyUrlPatch	Comment word search url	屏蔽评论关键词搜索功能
+misc/protobuf/patch/MossPatch.kt	MossPatch	Moss	gRPC 通信引擎服务 hook
+misc/protobuf/patch/UnlockProtobufPatch.kt	UnlockProtobufPatch	Unlock ProtoBuf	公开ProtoBuf实体构建方法
+misc/settings/patch/FixPreferenceManagerPatch.kt	FixPreferenceManagerPatch	Fix preference manager	修复PreferenceManager被混淆后引起的问题
+misc/settings/patch/HdPreferenceFragmentPatch.kt	HdPreferenceFragmentPatch	Hd preference fragment	HD版本设置辅助补丁
+misc/settings/patch/SettingsResourcePatch.kt	SettingsResourcePatch	BiliRoamingX settings entrance	哔哩漫游X设置入口
+misc/theme/patch/CustomThemePatch.kt	CustomThemePatch	Custom theme color	自定义主题色
+misc/toast/patch/ToastPatch.kt	ToastPatch	Toast	调用APP自带Toast补丁
+misc/webview/patch/WebViewPatch.kt	WebViewPatch	Webview	WebView 补丁
+video/player/patch/AddBackDmSystemFontPatch.kt	AddBackDmSystemFontPatch	Add back danmaku system font	加回弹幕默认使用推荐字体设置
+video/player/patch/BangumiKeyDownHandlerPatch.kt	BangumiKeyDownHandlerPatch	Enable Key mapping	HD版启用番剧页面键盘按键映射
+video/player/patch/DefaultPlaybackSpeedPatch.kt	DefaultPlaybackSpeedPatch	Default playback speed	自定义播放器默认播放速度
+video/player/patch/HwCodecPatch.kt	HwCodecPatch	Force hardware codec	强制硬件解码
+video/player/patch/LongPressPlaybackSpeedPatch.kt	LongPressPlaybackSpeedPatch	Long press playback speed	自定义播放器长按播放速度
+video/player/patch/OverridePlaybackSpeedPatch.kt	OverridePlaybackSpeedPatch	Override playback speed	自定义播放器播放速度列表
+video/player/patch/PlayUrlPatch.kt	PlayUrlPatch	Play url	播放地址拦截处理
+video/player/patch/PlayerGestureDetectorPatch.kt	PlayerGestureDetectorPatch	Player gesture detector hook	播放器 GestureDetector hook
+video/player/patch/PlayerPatch.kt	PlayerPatch	Player core	播放器核心hook
+video/player/patch/PlayerToastPatch.kt	PlayerToastPatch	Player toast	播放器特定样式toast显示拦截
+video/player/patch/RememberPlaybackSpeedPatch.kt	RememberPlaybackSpeedPatch	Remember playback speed	记住播放速度变化
+video/quality/patch/VideoQualityPatch.kt	VideoQualityPatch	Video default quality	视频默认画质设置
+video/subtitle/patch/SubtitleImportSaveButtonPatch.kt	SubtitleImportSaveButtonPatch	tv.danmaku.bili	
+video/subtitle/patch/SubtitleImportSavePatch.kt	SubtitleImportSavePatch	Subtitle import and save	导入及保存字幕相关功能补丁
+video/subtitle/patch/SubtitlePatch.kt	SubtitlePatch	Subtitle style	字幕样式相关补丁
