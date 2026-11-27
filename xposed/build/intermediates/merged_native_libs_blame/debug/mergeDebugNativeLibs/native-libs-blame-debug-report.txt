@@ -1,0 +1,4 @@
+lib/arm64-v8a/libdexkit.so->org.luckypray:dexkit:2.3.0
+lib/armeabi-v7a/libdexkit.so->org.luckypray:dexkit:2.3.0
+lib/x86/libdexkit.so->org.luckypray:dexkit:2.3.0
+lib/x86_64/libdexkit.so->org.luckypray:dexkit:2.3.0

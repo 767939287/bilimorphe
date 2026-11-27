@@ -1,0 +1,134 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:2:1-29:12
+MERGED from [:integrations:app] /root/project/revanced-bilibili-patches/integrations/app/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-10:12
+MERGED from [io.github.libxposed:service:102.0.0] /root/.gradle/caches/9.9.2/transforms/a1f08124a2a1a1ef51c344ef51e5aaeb/transformed/service-102.0.0/AndroidManifest.xml:2:1-16:12
+MERGED from [org.luckypray:dexkit:2.3.0] /root/.gradle/caches/9.9.2/transforms/2b125b4ce968aec59547c62279547b1b/transformed/dexkit-2.3.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.github.yubyf:truetypeparser-light:2.1.4] /root/.gradle/caches/9.9.2/transforms/d61e1c25c1e7ebd6afb6b9712fb26d71/transformed/truetypeparser-light-2.1.4/AndroidManifest.xml:21:1-28:12
+MERGED from [:integrations:extend] /root/project/revanced-bilibili-patches/integrations/extend/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
+MERGED from [org.lsposed.hiddenapibypass:hiddenapibypass:6.1] /root/.gradle/caches/9.9.2/transforms/407fa07fc22b63f87c2422f27bdbb46a/transformed/hiddenapibypass-6.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.documentfile:documentfile:1.1.0] /root/.gradle/caches/9.9.2/transforms/5440ed38e80a430626e6c2eaadcf045b/transformed/documentfile-1.1.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.github.libxposed:interface:102.0.0] /root/.gradle/caches/9.9.2/transforms/82f72ad8ea29b05005d38608384ed32d/transformed/interface-102.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [dev.rikka.ndk.thirdparty:cxx:1.2.0] /root/.gradle/caches/9.9.2/transforms/fff61f63e0c14bc466c44b4a5b269170/transformed/cxx-1.2.0/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.core:core:1.7.0] /root/.gradle/caches/9.9.2/transforms/3a1dd099f112ab1c5036b83f080efb7c/transformed/core-1.7.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /root/.gradle/caches/9.9.2/transforms/f9901e232db4a340f692510a208415da/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /root/.gradle/caches/9.9.2/transforms/9701453a1f1f325fe917b9b6ba2d8e62/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /root/.gradle/caches/9.9.2/transforms/d44151a58b11de8647c89f5aa3d83b86/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+	package
+		INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:5:22-64
+queries
+ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:7:5-9:15
+package#tv.danmaku.bili
+ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:8:9-51
+	android:name
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:8:18-48
+application
+ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:11:5-28:19
+INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:11:5-28:19
+MERGED from [io.github.libxposed:service:102.0.0] /root/.gradle/caches/9.9.2/transforms/a1f08124a2a1a1ef51c344ef51e5aaeb/transformed/service-102.0.0/AndroidManifest.xml:8:5-14:19
+MERGED from [io.github.libxposed:service:102.0.0] /root/.gradle/caches/9.9.2/transforms/a1f08124a2a1a1ef51c344ef51e5aaeb/transformed/service-102.0.0/AndroidManifest.xml:8:5-14:19
+MERGED from [androidx.core:core:1.7.0] /root/.gradle/caches/9.9.2/transforms/3a1dd099f112ab1c5036b83f080efb7c/transformed/core-1.7.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.7.0] /root/.gradle/caches/9.9.2/transforms/3a1dd099f112ab1c5036b83f080efb7c/transformed/core-1.7.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /root/.gradle/caches/9.9.2/transforms/9701453a1f1f325fe917b9b6ba2d8e62/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /root/.gradle/caches/9.9.2/transforms/9701453a1f1f325fe917b9b6ba2d8e62/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.7.0] /root/.gradle/caches/9.9.2/transforms/3a1dd099f112ab1c5036b83f080efb7c/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:14:9-35
+	android:label
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:13:9-41
+	tools:targetApi
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:16:9-29
+	android:allowBackup
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:12:9-36
+	android:theme
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:15:9-59
+activity#app.bilimorphe.SettingsActivity
+ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:18:9-27:20
+	android:label
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:21:13-45
+	android:showForAllUsers
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:22:13-43
+	android:exported
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:20:13-36
+	android:name
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:19:13-45
+intent-filter#action:name:android.intent.action.MAIN+category:name:de.robv.android.xposed.category.MODULE_SETTINGS
+ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:23:13-26:29
+action#android.intent.action.MAIN
+ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:24:25-66
+category#de.robv.android.xposed.category.MODULE_SETTINGS
+ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:25:17-92
+	android:name
+		ADDED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml:25:27-89
+uses-sdk
+INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml
+INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml
+MERGED from [:integrations:app] /root/project/revanced-bilibili-patches/integrations/app/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:integrations:app] /root/project/revanced-bilibili-patches/integrations/app/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [io.github.libxposed:service:102.0.0] /root/.gradle/caches/9.9.2/transforms/a1f08124a2a1a1ef51c344ef51e5aaeb/transformed/service-102.0.0/AndroidManifest.xml:6:5-44
+MERGED from [io.github.libxposed:service:102.0.0] /root/.gradle/caches/9.9.2/transforms/a1f08124a2a1a1ef51c344ef51e5aaeb/transformed/service-102.0.0/AndroidManifest.xml:6:5-44
+MERGED from [org.luckypray:dexkit:2.3.0] /root/.gradle/caches/9.9.2/transforms/2b125b4ce968aec59547c62279547b1b/transformed/dexkit-2.3.0/AndroidManifest.xml:5:5-44
+MERGED from [org.luckypray:dexkit:2.3.0] /root/.gradle/caches/9.9.2/transforms/2b125b4ce968aec59547c62279547b1b/transformed/dexkit-2.3.0/AndroidManifest.xml:5:5-44
+MERGED from [io.github.yubyf:truetypeparser-light:2.1.4] /root/.gradle/caches/9.9.2/transforms/d61e1c25c1e7ebd6afb6b9712fb26d71/transformed/truetypeparser-light-2.1.4/AndroidManifest.xml:24:5-26:41
+MERGED from [io.github.yubyf:truetypeparser-light:2.1.4] /root/.gradle/caches/9.9.2/transforms/d61e1c25c1e7ebd6afb6b9712fb26d71/transformed/truetypeparser-light-2.1.4/AndroidManifest.xml:24:5-26:41
+MERGED from [:integrations:extend] /root/project/revanced-bilibili-patches/integrations/extend/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [:integrations:extend] /root/project/revanced-bilibili-patches/integrations/extend/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:5:5-44
+MERGED from [org.lsposed.hiddenapibypass:hiddenapibypass:6.1] /root/.gradle/caches/9.9.2/transforms/407fa07fc22b63f87c2422f27bdbb46a/transformed/hiddenapibypass-6.1/AndroidManifest.xml:5:5-73
+MERGED from [org.lsposed.hiddenapibypass:hiddenapibypass:6.1] /root/.gradle/caches/9.9.2/transforms/407fa07fc22b63f87c2422f27bdbb46a/transformed/hiddenapibypass-6.1/AndroidManifest.xml:5:5-73
+MERGED from [androidx.documentfile:documentfile:1.1.0] /root/.gradle/caches/9.9.2/transforms/5440ed38e80a430626e6c2eaadcf045b/transformed/documentfile-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.documentfile:documentfile:1.1.0] /root/.gradle/caches/9.9.2/transforms/5440ed38e80a430626e6c2eaadcf045b/transformed/documentfile-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [io.github.libxposed:interface:102.0.0] /root/.gradle/caches/9.9.2/transforms/82f72ad8ea29b05005d38608384ed32d/transformed/interface-102.0.0/AndroidManifest.xml:5:5-44
+MERGED from [io.github.libxposed:interface:102.0.0] /root/.gradle/caches/9.9.2/transforms/82f72ad8ea29b05005d38608384ed32d/transformed/interface-102.0.0/AndroidManifest.xml:5:5-44
+MERGED from [dev.rikka.ndk.thirdparty:cxx:1.2.0] /root/.gradle/caches/9.9.2/transforms/fff61f63e0c14bc466c44b4a5b269170/transformed/cxx-1.2.0/AndroidManifest.xml:5:5-7:41
+MERGED from [dev.rikka.ndk.thirdparty:cxx:1.2.0] /root/.gradle/caches/9.9.2/transforms/fff61f63e0c14bc466c44b4a5b269170/transformed/cxx-1.2.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core:1.7.0] /root/.gradle/caches/9.9.2/transforms/3a1dd099f112ab1c5036b83f080efb7c/transformed/core-1.7.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.7.0] /root/.gradle/caches/9.9.2/transforms/3a1dd099f112ab1c5036b83f080efb7c/transformed/core-1.7.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /root/.gradle/caches/9.9.2/transforms/f9901e232db4a340f692510a208415da/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /root/.gradle/caches/9.9.2/transforms/f9901e232db4a340f692510a208415da/transformed/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /root/.gradle/caches/9.9.2/transforms/9701453a1f1f325fe917b9b6ba2d8e62/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /root/.gradle/caches/9.9.2/transforms/9701453a1f1f325fe917b9b6ba2d8e62/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /root/.gradle/caches/9.9.2/transforms/d44151a58b11de8647c89f5aa3d83b86/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /root/.gradle/caches/9.9.2/transforms/d44151a58b11de8647c89f5aa3d83b86/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+	android:targetSdkVersion
+		INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /root/project/revanced-bilibili-patches/xposed/src/main/AndroidManifest.xml
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:integrations:app] /root/project/revanced-bilibili-patches/integrations/app/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from [:integrations:app] /root/project/revanced-bilibili-patches/integrations/app/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:7:22-76
+uses-permission#android.permission.SCHEDULE_EXACT_ALARM
+ADDED from [:integrations:app] /root/project/revanced-bilibili-patches/integrations/app/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from [:integrations:app] /root/project/revanced-bilibili-patches/integrations/app/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:8:22-76
+provider#io.github.libxposed.service.XposedProvider
+ADDED from [io.github.libxposed:service:102.0.0] /root/.gradle/caches/9.9.2/transforms/a1f08124a2a1a1ef51c344ef51e5aaeb/transformed/service-102.0.0/AndroidManifest.xml:9:9-13:54
+	android:authorities
+		ADDED from [io.github.libxposed:service:102.0.0] /root/.gradle/caches/9.9.2/transforms/a1f08124a2a1a1ef51c344ef51e5aaeb/transformed/service-102.0.0/AndroidManifest.xml:11:13-65
+	android:exported
+		ADDED from [io.github.libxposed:service:102.0.0] /root/.gradle/caches/9.9.2/transforms/a1f08124a2a1a1ef51c344ef51e5aaeb/transformed/service-102.0.0/AndroidManifest.xml:12:13-36
+	tools:ignore
+		ADDED from [io.github.libxposed:service:102.0.0] /root/.gradle/caches/9.9.2/transforms/a1f08124a2a1a1ef51c344ef51e5aaeb/transformed/service-102.0.0/AndroidManifest.xml:13:13-51
+	android:name
+		ADDED from [io.github.libxposed:service:102.0.0] /root/.gradle/caches/9.9.2/transforms/a1f08124a2a1a1ef51c344ef51e5aaeb/transformed/service-102.0.0/AndroidManifest.xml:10:13-70

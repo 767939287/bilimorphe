@@ -1,0 +1,8 @@
+app.bilimorphe.xposed-pngs-0 /root/project/revanced-bilibili-patches/xposed/build/generated/res/pngs/debug
+app.bilimorphe.xposed-updated_navigation_xml-1 /root/project/revanced-bilibili-patches/xposed/build/generated/updated_navigation_xml/debug
+app.bilimorphe.xposed-packageDebugResources-2 /root/project/revanced-bilibili-patches/xposed/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+app.bilimorphe.xposed-packageDebugResources-3 /root/project/revanced-bilibili-patches/xposed/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+app.bilimorphe.xposed-debug-4 /root/project/revanced-bilibili-patches/xposed/build/intermediates/merged_res/debug/mergeDebugResources
+app.bilimorphe.xposed-debug-5 /root/project/revanced-bilibili-patches/xposed/src/debug/res
+app.bilimorphe.xposed-main-6 /root/project/revanced-bilibili-patches/xposed/src/main/res
+gradleHome-0 /root/.gradle

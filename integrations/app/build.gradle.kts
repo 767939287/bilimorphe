@@ -17,6 +17,15 @@ setupLibraryModule {
     lint {
         checkReleaseBuilds = false
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    defaultConfig {
+        buildConfigField("String", "VERSION_NAME", "\"1.23.3\"")
+        buildConfigField("int", "VERSION_CODE", "12303")
+    }
 }
 
 dependencies {
