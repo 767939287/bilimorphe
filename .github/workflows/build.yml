@@ -34,27 +34,14 @@ jobs:
           sdkmanager "platforms;android-37.2" || \
             echo "::warning::platform 37.2 preinstall failed, AGP will resolve it automatically"
 
-      - name: Build debug
+      - name: Build xposed module
         run: |
           chmod +x ./gradlew
-          ./gradlew :app:assembleDebug --stacktrace
+          ./gradlew :xposed:assembleDebug --stacktrace
 
-      - name: Build release (unsigned)
-        run: ./gradlew :app:assembleRelease --stacktrace
-
-      - name: Upload APKs
+      - name: Upload APK
         uses: actions/upload-artifact@v7
         with:
           name: bilimorphe-apk
-          path: |
-            app/build/outputs/apk/debug/*.apk
-            app/build/outputs/apk/release/*.apk
+          path: xposed/build/outputs/apk/debug/*.apk
           if-no-files-found: error
-
-      - name: Attach to release
-        if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            app/build/outputs/apk/debug/*.apk
-            app/build/outputs/apk/release/*.apk
