@@ -212,3 +212,26 @@ unzip -o "/root/project/Android-hook-file/Bili-v9.20.0-x1.28.6@bb_show.apk" clas
 → 跑通后其余 200 项 = 换指纹 + 换逻辑的复制
 → 再按 hook 簇横向铺开
 ```
+
+### 9.8 国际版 hook 点 → 国内版兼容性验证（2026-11-27 实测）
+
+用国内版 9.20.0 的 dex 池（1,109,189 条）逐项验证国际版模块（ch6vip SponsorBlock / BiliTamer）的目标：
+
+| 目标 | 国内版 | 结论 |
+|---|---|---|
+| `com.bapis...dm.v1.DMMoss` | ✅ | 可用（注意是 DMMoss 非 DmMoss） |
+| `com.bapis...dm.v1.DmViewReply` | ✅ | SponsorBlock 关键 hook 点可用 |
+| `com.bapis...search.v1.SearchMoss` / `SearchAllResponse` | ✅ | 搜索相关可复用 |
+| `tv.danmaku.bili.khomedata.repo.a` / `khome.vm.HomeFrameViewModel` / `khomedata.repo.cache.b` | ✅ | 首页数据链可复用 |
+| `tv.danmaku.bili.ui.main2.resource.MainResourceManager$TabResponse` | ✅ | 底部 tab |
+| `com.bilibili.lib.blconfig.ConfigManager` | ✅ | 云控覆盖可行 |
+| `com.bapis...dm.v1.DmMoss` | ❌ | 国内版只有 DMMoss |
+| `IjkMediaAsset$MediaAssetSegment$Builder` | ❌ | 播放器内部类结构不同 |
+| `/pgc/player/api/playurl`、`/pgc/player/web/playurl` | ❌ | 国内版走 **gRPC**（`bilibili.pgc.gateway.player.v2.PlayURL`） |
+| `sponsor.ajay.app` | ❌ | 域名运行时拼接，代码内有 `/api/viewedVideoSponsorTime?UUID=` |
+
+**结论**：类名层复用率 9/11；API 层必须按国内版重写（gRPC）。
+
+### 9.9 借鉴：findClass 观测法（BiliTamer）
+BiliTamer 的 `ProbeHooks` 用 `BaseDexClassLoader.findClass` 观测宿主真实加载的类名，规避混淆名猜测。
+可作为第 11 项「指纹登记表」的补充手段：先用 probe 收集真实类名 → 再固化 DexKit 指纹。
