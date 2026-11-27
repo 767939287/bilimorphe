@@ -37,7 +37,7 @@ fun Property<*>.allowChanges() {
 private inline fun <reified T : BaseExtension> Project.setupBaseModule(crossinline block: T.() -> Unit = {}) {
     extensions.configure<BaseExtension>("android") {
         compileSdkVersion(Versions.COMPILE_SDK)
-        ndkVersion = Versions.NDK
+        // ndkVersion removed: native hooks are provided by LSPosed at runtime
         defaultConfig {
             minSdk = Versions.MIN_SDK
             targetSdk = Versions.TARGET_SDK
