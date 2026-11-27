@@ -21,6 +21,7 @@ dependencyResolutionManagement {
         mavenLocal()
         google()
         maven { url = uri("https://jitpack.io") }
+        maven(url = "https://api.xposed.info")
         maven {
             // A repository must be specified for some reason. "registry" is a dummy.
             url = uri("https://maven.pkg.github.com/zjns/registry")
