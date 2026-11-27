@@ -4,12 +4,14 @@ plugins {
 
 android {
     namespace = "app.bilimorphe"
-    compileSdk = 36
+    compileSdk {
+        version = release(37) { minorApiLevel = 2 }
+    }
 
     defaultConfig {
         applicationId = "app.bilimorphe"
         minSdk = 27
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "0.1.0"
     }

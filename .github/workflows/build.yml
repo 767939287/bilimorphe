@@ -15,42 +15,35 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup JDK
         uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '21'
-          cache: gradle
 
-      - name: Report Android SDK
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Preinstall compileSdk
         run: |
-          echo "ANDROID_HOME=$ANDROID_HOME"
-          ls "$ANDROID_HOME/platforms" || true
-          ls "$ANDROID_HOME/build-tools" || true
-
-      - name: Install SDK packages
-        run: |
-          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
-          if [ ! -x "$SDKMANAGER" ]; then
-            SDKMANAGER=$(ls -d "$ANDROID_HOME"/cmdline-tools/*/bin/sdkmanager | tail -1)
-          fi
-          echo "using $SDKMANAGER"
-          yes | "$SDKMANAGER" --licenses > /dev/null 2>&1 || true
-          "$SDKMANAGER" --install "platforms;android-36" "build-tools;36.0.0"
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
+          sdkmanager "platforms;android-37.2" || \
+            echo "::warning::platform 37.2 preinstall failed, AGP will resolve it automatically"
 
       - name: Build debug
-        run: ./gradlew :app:assembleDebug --stacktrace
+        run: |
+          chmod +x ./gradlew
+          ./gradlew :app:assembleDebug --stacktrace
 
       - name: Build release (unsigned)
         run: ./gradlew :app:assembleRelease --stacktrace
 
       - name: Upload APKs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: bilimorphe-apk
           path: |
