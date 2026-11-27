@@ -45,6 +45,11 @@ revanced-patcher = { module = "kofua.app.revanced:revanced-patcher", version.ref
 smali = { module = "com.android.tools.smali:smali", version.ref = "smali" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 
+libxposed-api = { group = "io.github.libxposed", name = "api", version.ref = "libxposed" }
+libxposed-service = { group = "io.github.libxposed", name = "service", version.ref = "libxposed" }
+xposed-api = { group = "de.robv.android.xposed", name = "api", version.ref = "xposed-api" }
+dexkit = { group = "org.luckypray", name = "dexkit", version.ref = "dexkit" }
+
 [plugins]
 # integrations
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -54,7 +59,3 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 # patches
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-libxposed-api = { group = "io.github.libxposed", name = "api", version.ref = "libxposed" }
-libxposed-service = { group = "io.github.libxposed", name = "service", version.ref = "libxposed" }
-xposed-api = { group = "de.robv.android.xposed", name = "api", version.ref = "xposed-api" }
-dexkit = { group = "org.luckypray", name = "dexkit", version.ref = "dexkit" }
