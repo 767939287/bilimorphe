@@ -25,7 +25,7 @@ object CommentChecker {
                 Utils.async(delay) {
                     checkCommentInternal(oid, id, message, quick = false)
                 }
-                Toasts.showShortWithId("biliroaming_check_comment_toast", delay / 1000)
+                Toasts.showShortWithId("bili_check_comment_toast", delay / 1000)
             }
         }
         Utils.runOnMainThread(300) {
@@ -78,20 +78,20 @@ object CommentChecker {
         result: CheckResult,
     ) = Utils.runOnMainThread {
         val activity = ApplicationDelegate.getTopActivity()
-        val title = Utils.getString("biliroaming_comment_check_result_title")
-        val contentTitle = Utils.getString("biliroaming_comment_content")
+        val title = Utils.getString("bili_comment_check_result_title")
+        val contentTitle = Utils.getString("bili_comment_content")
         if (result != CheckResult.Valid) {
             var tips = if (quick) {
                 if (result == CheckResult.Blocked) {
-                    Utils.getString("biliroaming_comment_invalid_quick_blocked")
+                    Utils.getString("bili_comment_invalid_quick_blocked")
                 } else {
-                    Utils.getString("biliroaming_comment_invalid_quick_deleted")
+                    Utils.getString("bili_comment_invalid_quick_deleted")
                 }
             } else {
                 if (result == CheckResult.Blocked) {
-                    Utils.getString("biliroaming_comment_invalid_normal_blocked")
+                    Utils.getString("bili_comment_invalid_normal_blocked")
                 } else {
-                    Utils.getString("biliroaming_comment_invalid_normal_deleted")
+                    Utils.getString("bili_comment_invalid_normal_deleted")
                 }
             }
             tips += "\n\n$contentTitle\n$message"
@@ -106,7 +106,7 @@ object CommentChecker {
                     }.show()
             } else Toasts.showLong(tips)
         } else if (!quick) {
-            var tips = Utils.getString("biliroaming_comment_valid_message")
+            var tips = Utils.getString("bili_comment_valid_message")
             tips += "\n\n$contentTitle\n$message"
             if (activity != null) {
                 AlertDialog.Builder(activity)

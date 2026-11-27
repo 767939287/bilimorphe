@@ -11,7 +11,7 @@ import app.revanced.bilibili.utils.onClick
 
 class FilterHomeRcmdByKeywordFragment : BaseWidgetSettingFragment() {
     companion object {
-        const val EXTRA_FROM = "biliroaming_from"
+        const val EXTRA_FROM = "bili_from"
     }
 
     override fun onCreateView(
@@ -22,63 +22,63 @@ class FilterHomeRcmdByKeywordFragment : BaseWidgetSettingFragment() {
         val from = arguments?.getString(EXTRA_FROM).orEmpty()
 
         val (root, content, saveButton) = rootViewTemplate()
-        val applyToRelateSwitch = switchPrefsItem(string("biliroaming_apply_to_relate_title"))
+        val applyToRelateSwitch = switchPrefsItem(string("bili_apply_to_relate_title"))
             .let { content.addView(it.first); it.second }
         applyToRelateSwitch.isChecked = Settings.HomeFilterApplyToVideo()
-        val applyToPopularSwitch = switchPrefsItem(string("biliroaming_apply_to_popular_title"))
+        val applyToPopularSwitch = switchPrefsItem(string("bili_apply_to_popular_title"))
             .let { content.addView(it.first); it.second }
         applyToPopularSwitch.isChecked = Settings.HomeFilterApplyToPopular()
-        val applyToStorySwitch = switchPrefsItem(string("biliroaming_apply_to_story_title"))
+        val applyToStorySwitch = switchPrefsItem(string("bili_apply_to_story_title"))
             .let { content.addView(it.first); it.second }
         applyToStorySwitch.isChecked = Settings.HomeFilterApplyToStory()
 
-        content.addView(textInputTitle(string("biliroaming_low_play_count_summary")))
-        val lowPlayCountInput = textInputItem(string("biliroaming_low_play_count_title"))
+        content.addView(textInputTitle(string("bili_low_play_count_summary")))
+        val lowPlayCountInput = textInputItem(string("bili_low_play_count_title"))
             .let { content.addView(it.first); it.second }
         Settings.LowPlayCountLimit().takeIf { it > 0 }
             ?.let { lowPlayCountInput.setText(it.toString()) }
 
-        content.addView(textInputTitle(string("biliroaming_hide_duration_summary")))
-        val shortDurationInput = textInputItem(string("biliroaming_short_duration_title"))
+        content.addView(textInputTitle(string("bili_hide_duration_summary")))
+        val shortDurationInput = textInputItem(string("bili_short_duration_title"))
             .let { content.addView(it.first); it.second }
-        val longDurationInput = textInputItem(string("biliroaming_long_duration_title"))
+        val longDurationInput = textInputItem(string("bili_long_duration_title"))
             .let { content.addView(it.first); it.second }
         Settings.ShortDurationLimit().takeIf { it > 0 }
             ?.let { shortDurationInput.setText(it.toString()) }
         Settings.LongDurationLimit().takeIf { it > 0 }
             ?.let { longDurationInput.setText(it.toString()) }
 
-        content.addView(textInputTitle(string("biliroaming_hide_duration_story_summary")))
-        val shortDurationInputStory = textInputItem(string("biliroaming_short_duration_story_title"))
+        content.addView(textInputTitle(string("bili_hide_duration_story_summary")))
+        val shortDurationInputStory = textInputItem(string("bili_short_duration_story_title"))
             .let { content.addView(it.first); it.second }
-        val longDurationInputStory = textInputItem(string("biliroaming_long_duration_story_title"))
+        val longDurationInputStory = textInputItem(string("bili_long_duration_story_title"))
             .let { content.addView(it.first); it.second }
         Settings.ShortDurationLimitStory().takeIf { it > 0 }
             ?.let { shortDurationInputStory.setText(it.toString()) }
         Settings.LongDurationLimitStory().takeIf { it > 0 }
             ?.let { longDurationInputStory.setText(it.toString()) }
 
-        content.addView(textInputTitle(string("biliroaming_keywords_filter_summary")))
+        content.addView(textInputTitle(string("bili_keywords_filter_summary")))
         val (titleGroup, titleRegexModeSwitch) = content.addKeywordGroup(
-            string("biliroaming_keyword_group_name_title"), showRegex = true
+            string("bili_keyword_group_name_title"), showRegex = true
         )
         titleRegexModeSwitch.isChecked = Settings.HomeRcmdFilterTitleRegexMode()
         val (reasonGroup, reasonRegexModeSwitch) = content.addKeywordGroup(
-            string("biliroaming_keyword_group_name_rcmd_reason"), showRegex = true
+            string("bili_keyword_group_name_rcmd_reason"), showRegex = true
         )
         reasonRegexModeSwitch.isChecked = Settings.HomeRcmdFilterReasonRegexMode()
         val uidGroup = content.addKeywordGroup(
-            string("biliroaming_keyword_group_name_uid"),
+            string("bili_keyword_group_name_uid"),
             inputType = EditorInfo.TYPE_CLASS_NUMBER
         ).first
         val (upGroup, upRegexModeSwitch) = content.addKeywordGroup(
-            string("biliroaming_keyword_group_name_up"), showRegex = true
+            string("bili_keyword_group_name_up"), showRegex = true
         )
         upRegexModeSwitch.isChecked = Settings.HomeRcmdFilterUpRegexMode()
         val categoryGroup =
-            content.addKeywordGroup(string("biliroaming_keyword_group_name_category")).first
+            content.addKeywordGroup(string("bili_keyword_group_name_category")).first
         val channelGroup =
-            content.addKeywordGroup(string("biliroaming_keyword_group_name_channel")).first
+            content.addKeywordGroup(string("bili_keyword_group_name_channel")).first
         Settings.HomeRcmdFilterTitle().forEach {
             titleGroup.addView(keywordInputItem(titleGroup, it).first)
         }
@@ -108,19 +108,19 @@ class FilterHomeRcmdByKeywordFragment : BaseWidgetSettingFragment() {
             val titles = titleGroup.getKeywords()
             val titleRegexMode = titleRegexModeSwitch.isChecked
             if (titleRegexMode && titles.runCatching { forEach { it.toRegex() } }.isFailure) {
-                Toasts.showShortWithId("biliroaming_invalid_regex")
+                Toasts.showShortWithId("bili_invalid_regex")
                 return@onClick
             }
             val reasons = reasonGroup.getKeywords()
             val reasonRegexMode = reasonRegexModeSwitch.isChecked
             if (reasonRegexMode && reasons.runCatching { forEach { it.toRegex() } }.isFailure) {
-                Toasts.showShortWithId("biliroaming_invalid_regex")
+                Toasts.showShortWithId("bili_invalid_regex")
                 return@onClick
             }
             val ups = upGroup.getKeywords()
             val upRegexMode = upRegexModeSwitch.isChecked
             if (upRegexMode && ups.runCatching { forEach { it.toRegex() } }.isFailure) {
-                Toasts.showShortWithId("biliroaming_invalid_regex")
+                Toasts.showShortWithId("bili_invalid_regex")
                 return@onClick
             }
 
@@ -143,9 +143,9 @@ class FilterHomeRcmdByKeywordFragment : BaseWidgetSettingFragment() {
             Settings.HomeFilterApplyToStory.save(applyToStorySwitch.isChecked)
 
             when (from) {
-                "home" -> Toasts.showShortWithId("biliroaming_save_success_and_refresh_home")
-                "popular" -> Toasts.showShortWithId("biliroaming_save_success_and_refresh_popular")
-                "story" -> Toasts.showShortWithId("biliroaming_save_ok")
+                "home" -> Toasts.showShortWithId("bili_save_success_and_refresh_home")
+                "popular" -> Toasts.showShortWithId("bili_save_success_and_refresh_popular")
+                "story" -> Toasts.showShortWithId("bili_save_ok")
             }
             parentFragmentManager.popBackStack()
         }

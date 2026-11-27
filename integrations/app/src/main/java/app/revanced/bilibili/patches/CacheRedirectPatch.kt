@@ -102,15 +102,15 @@ object CacheRedirectPatch {
     ) {
         val appDialogTheme = Utils.getResId("AppTheme.Dialog.Alert", "style")
         AlertDialog.Builder(context, appDialogTheme)
-            .setMessage(Utils.getString("biliroaming_whether_use_external_downloader"))
-            .setNegativeButton(Utils.getString("biliroaming_n")) { _, _ ->
+            .setMessage(Utils.getString("bili_whether_use_external_downloader"))
+            .setNegativeButton(Utils.getString("bili_n")) { _, _ ->
                 onCancel()
-            }.setPositiveButton(Utils.getString("biliroaming_y")) { _, _ ->
+            }.setPositiveButton(Utils.getString("bili_y")) { _, _ ->
                 val enabled = runCatchingOrNull {
                     Utils.getContext().packageManager.getApplicationInfo(packageName, 0).enabled
                 } ?: false
                 if (!enabled) {
-                    Toasts.showLongWithId("biliroaming_external_downloader_not_installed")
+                    Toasts.showLongWithId("bili_external_downloader_not_installed")
                 } else {
                     val intent = Intent(Intent.ACTION_SEND).apply {
                         `package` = packageName

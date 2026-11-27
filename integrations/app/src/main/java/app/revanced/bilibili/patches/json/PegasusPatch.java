@@ -1493,7 +1493,7 @@ public class PegasusPatch {
             Settings.HomeRcmdFilterChannel.append(value);
         }
         // 添加成功
-        Toasts.showShortWithId("biliroaming_add_success");
+        Toasts.showShortWithId("bili_add_success");
         return true;
     }
 }

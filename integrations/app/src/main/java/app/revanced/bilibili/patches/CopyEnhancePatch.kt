@@ -153,7 +153,7 @@ object CopyEnhancePatch {
 
         showCopyDialog(ApplicationDelegate.requireTopActivity(), allDesc) { v ->
             setClipboardContent(label = "text", v)
-            Toasts.showShortWithId("biliroaming_copy_success")
+            Toasts.showShortWithId("bili_copy_success")
         }
         return true
     }
@@ -246,9 +246,9 @@ object CopyEnhancePatch {
         onCopyAll: (CharSequence) -> Unit
     ) {
         val appDialogTheme = Utils.getResId("AppTheme.Dialog.Alert", "style")
-        val title = Utils.getString("biliroaming_dialog_title_copy_enhance")
-        val posButton = Utils.getString("biliroaming_dialog_btn_share")
-        val neuButton = Utils.getString("biliroaming_dialog_btn_copy_all")
+        val title = Utils.getString("bili_dialog_title_copy_enhance")
+        val posButton = Utils.getString("bili_dialog_btn_share")
+        val neuButton = Utils.getString("bili_dialog_btn_copy_all")
         val alertDialog = AlertDialog.Builder(context, appDialogTheme)
             .setTitle(title)
             .setMessage(text)

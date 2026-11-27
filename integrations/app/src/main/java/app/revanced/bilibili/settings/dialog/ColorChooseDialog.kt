@@ -23,15 +23,15 @@ class ColorChooseDialog(
     defColor: Int,
     private val onConfirm: (color: Int) -> Unit
 ) : AlertDialog.Builder(context) {
-    private val view = context.inflateLayout("biliroaming_dialog_color_choose")
-    private val sampleView: View = view.findView("biliroaming_view_sample")
-    private val etColor: EditText = view.findView("biliroaming_et_color")
-    private val sbColorR: SeekBar = view.findView("biliroaming_sb_colorR")
-    private val sbColorG: SeekBar = view.findView("biliroaming_sb_colorG")
-    private val sbColorB: SeekBar = view.findView("biliroaming_sb_colorB")
-    private val tvColorR: TextView = view.findView("biliroaming_tv_colorR")
-    private val tvColorG: TextView = view.findView("biliroaming_tv_colorG")
-    private val tvColorB: TextView = view.findView("biliroaming_tv_colorB")
+    private val view = context.inflateLayout("bili_dialog_color_choose")
+    private val sampleView: View = view.findView("bili_view_sample")
+    private val etColor: EditText = view.findView("bili_et_color")
+    private val sbColorR: SeekBar = view.findView("bili_sb_colorR")
+    private val sbColorG: SeekBar = view.findView("bili_sb_colorG")
+    private val sbColorB: SeekBar = view.findView("bili_sb_colorB")
+    private val tvColorR: TextView = view.findView("bili_tv_colorR")
+    private val tvColorG: TextView = view.findView("bili_tv_colorG")
+    private val tvColorB: TextView = view.findView("bili_tv_colorB")
 
     val color: Int
         get() = Color.rgb(sbColorR.progress, sbColorG.progress, sbColorB.progress)
@@ -84,7 +84,7 @@ class ColorChooseDialog(
         setSeekBarListener()
         updateValue(defColor)
         etColor.setText(defColor.toHexColor(alpha = false))
-        setTitle(Utils.getString("biliroaming_dialog_color_picker_title"))
+        setTitle(Utils.getString("bili_dialog_color_picker_title"))
         setPositiveButton(android.R.string.ok) { _, _ -> onConfirm(color) }
         setNegativeButton(android.R.string.cancel, null)
     }

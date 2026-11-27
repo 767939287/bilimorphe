@@ -40,7 +40,7 @@ object VideoExporter {
 
     fun exportVideos(selections: List<DownloadEntrySelection>) {
         exporting = true
-        Toasts.showShortWithId("biliroaming_exporting")
+        Toasts.showShortWithId("bili_exporting")
         val downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
         val videosDir = File(downloadsDir, "bilibili/videos").apply { mkdirs() }
         val threadsCount = Runtime.getRuntime().availableProcessors().coerceAtLeast(2)

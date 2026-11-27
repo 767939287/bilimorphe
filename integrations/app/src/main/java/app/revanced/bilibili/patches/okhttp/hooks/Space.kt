@@ -2,7 +2,7 @@ package app.revanced.bilibili.patches.okhttp.hooks
 
 import android.net.Uri
 import app.revanced.bilibili.account.Accounts
-import app.revanced.bilibili.api.BiliRoamingApi.getSpace
+import app.revanced.bilibili.api.BiliApi.getSpace
 import app.revanced.bilibili.patches.okhttp.ApiHook
 import app.revanced.bilibili.settings.Settings
 import app.revanced.bilibili.utils.iterator

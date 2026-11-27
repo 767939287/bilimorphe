@@ -10,8 +10,8 @@ import app.revanced.bilibili.utils.findView
 import java.io.File
 
 object SplashPatch {
-    const val SPLASH_IMAGE = "biliroaming_splash"
-    const val LOGO_IMAGE = "biliroaming_logo"
+    const val SPLASH_IMAGE = "bili_splash"
+    const val LOGO_IMAGE = "bili_logo"
 
     @Keep
     @JvmStatic

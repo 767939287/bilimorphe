@@ -1,7 +1,7 @@
 package app.revanced.bilibili.patches.protobuf
 
 import android.util.Pair
-import app.revanced.bilibili.api.BiliRoamingApi.getSeason
+import app.revanced.bilibili.api.BiliApi.getSeason
 import app.revanced.bilibili.patches.AutoLikePatch
 import app.revanced.bilibili.patches.BLRoutePatch
 import app.revanced.bilibili.patches.json.PegasusPatch

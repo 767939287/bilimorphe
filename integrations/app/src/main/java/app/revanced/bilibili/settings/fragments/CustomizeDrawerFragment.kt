@@ -8,7 +8,7 @@ import app.revanced.bilibili.utils.Constants
 import app.revanced.bilibili.utils.Toasts
 import app.revanced.bilibili.utils.Utils
 
-@SettingFragment("biliroaming_setting_customize_drawer")
+@SettingFragment("bili_setting_customize_drawer")
 class CustomizeDrawerFragment : BaseDynamicItemsFragment(
     Settings.ShowingDrawerItems,
     JSONPatch.drawerItems
@@ -19,6 +19,6 @@ class CustomizeDrawerFragment : BaseDynamicItemsFragment(
             && Settings.ShowingDrawerItems().let {
                 !it.contains(Constants.ALL_VALUE) && !it.contains("更多服务")
             }
-        ) Toasts.showLongWithId("biliroaming_hide_more_category_warning")
+        ) Toasts.showLongWithId("bili_hide_more_category_warning")
     }
 }

@@ -101,14 +101,14 @@ object MusicNotificationPatch {
     @JvmStatic
     fun onBuildPlaybackState(playbackState: PlaybackStateCompat): PlaybackStateCompat {
         if (!needAdaptForTiramisu()) return playbackState
-        val actions = playbackState.actionsForBiliRoaming
+        val actions = playbackState.actionsForBili
         if (actions and PlaybackState.ACTION_PLAY_PAUSE != 0L
             && actions and PlaybackState.ACTION_FAST_FORWARD != 0L
             && actions and PlaybackState.ACTION_REWIND != 0L
         ) {
             // need add custom fast forward and rewind action for tiramisu when target to 33,
             // response of action will handled by patcher
-            val customActions = playbackState.customActionsForBiliRoaming
+            val customActions = playbackState.customActionsForBili
             if (!customActions.contains(customActionRewind))
                 customActions.add(customActionRewind)
             if (!customActions.contains(customActionForward))

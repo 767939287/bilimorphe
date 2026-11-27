@@ -18,8 +18,8 @@ import app.revanced.bilibili.settings.search.annotation.SettingFragment
 import app.revanced.bilibili.utils.*
 import java.io.File
 
-@SettingFragment("biliroaming_setting_misc")
-class MiscFragment : BiliRoamingBaseSettingFragment() {
+@SettingFragment("bili_setting_misc")
+class MiscFragment : BiliBaseSettingFragment() {
     companion object {
         private const val SELECTION_SPLASH = 222
         private const val SELECTION_LOGO = 223
@@ -41,8 +41,8 @@ class MiscFragment : BiliRoamingBaseSettingFragment() {
         }
         disablePreference(
             key = Settings.CustomUpdate.key,
-            { Utils.getString("biliroaming_custom_update_only_64") } to { !isOsArchArm64 },
-            { Utils.getString("biliroaming_custom_update_invalid_sig") } to { !isPrebuilt }
+            { Utils.getString("bili_custom_update_only_64") } to { !isOsArchArm64 },
+            { Utils.getString("bili_custom_update_invalid_sig") } to { !isPrebuilt }
         )
         disablePreference(Settings.Skin.key, PrefsDisableReason.AppVersion) {
             Utils.isHd()
@@ -99,7 +99,7 @@ class MiscFragment : BiliRoamingBaseSettingFragment() {
             Themes.applyCustomTheme(context)
         }.onFailure {
             Logger.error(it) { "download current theme failed" }
-            Toasts.showShortWithId("biliroaming_theme_apply_failed")
+            Toasts.showShortWithId("bili_theme_apply_failed")
         }.onSuccess {
             onSuccess()
         } else runCatching {
@@ -124,15 +124,15 @@ class MiscFragment : BiliRoamingBaseSettingFragment() {
         view.setText(Settings.SkinJson())
         AlertDialog.Builder(context)
             .setView(wrapper)
-            .setTitle(Utils.getString("biliroaming_skin_json_pref_title"))
+            .setTitle(Utils.getString("bili_skin_json_pref_title"))
             .setPositiveButton(android.R.string.ok, null)
-            .setNegativeButton(Utils.getString("biliroaming_skin_get"), null)
-            .setNeutralButton(Utils.getString("biliroaming_skin_import_from_file"), null)
+            .setNegativeButton(Utils.getString("bili_skin_get"), null)
+            .setNeutralButton(Utils.getString("bili_skin_import_from_file"), null)
             .create().constraintSize(maxHeight = -1).onShow {
                 getButton(Dialog.BUTTON_POSITIVE)?.onClick {
                     val text = view.text.toString().trim()
                     if (text.runCatchingOrNull { toJSONObject() } == null) {
-                        Toasts.showShortWithId("biliroaming_skin_invalid")
+                        Toasts.showShortWithId("bili_skin_invalid")
                         return@onClick
                     }
                     Settings.SkinJson.save(text)
@@ -147,11 +147,11 @@ class MiscFragment : BiliRoamingBaseSettingFragment() {
                                 action = Intent.ACTION_GET_CONTENT
                                 type = "application/json"
                                 addCategory(Intent.CATEGORY_OPENABLE)
-                            }, Utils.getString("biliroaming_skin_choose")),
+                            }, Utils.getString("bili_skin_choose")),
                             2336
                         )
                     } catch (ex: ActivityNotFoundException) {
-                        Toasts.showShortWithId("biliroaming_pls_install_file_manager")
+                        Toasts.showShortWithId("bili_pls_install_file_manager")
                     }
                 }
                 getButton(Dialog.BUTTON_NEGATIVE)?.onClick {
@@ -168,8 +168,8 @@ class MiscFragment : BiliRoamingBaseSettingFragment() {
             action = Intent.ACTION_GET_CONTENT
             type = "image/*"
             addCategory(Intent.CATEGORY_OPENABLE)
-        }, Utils.getString("biliroaming_choose_image")), request)
+        }, Utils.getString("bili_choose_image")), request)
     } catch (ex: ActivityNotFoundException) {
-        Toasts.showShortWithId("biliroaming_pls_install_file_manager")
+        Toasts.showShortWithId("bili_pls_install_file_manager")
     }
 }

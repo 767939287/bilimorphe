@@ -5,8 +5,8 @@ import app.revanced.bilibili.settings.Settings
 import app.revanced.bilibili.settings.search.annotation.SettingFragment
 import app.revanced.bilibili.utils.Versions
 
-@SettingFragment("biliroaming_setting_customize_video_detail")
-class CustomizeVideoDetailFragment : BiliRoamingBaseSettingFragment() {
+@SettingFragment("bili_setting_customize_video_detail")
+class CustomizeVideoDetailFragment : BiliBaseSettingFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
         disablePreference(Settings.DisableAutoSelect.key, PrefsDisableReason.AppVersion) {

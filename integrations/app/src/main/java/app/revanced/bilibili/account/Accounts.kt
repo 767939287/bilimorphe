@@ -163,7 +163,7 @@ object Accounts {
         if ((isSignOut || isSwitchAccount) && Utils.isMainProcess() && Settings.Skin()) {
             Settings.Skin.save(false)
             Themes.unloadLoadEquip()
-            Toasts.showLongWithId("biliroaming_theme_closed_by_account")
+            Toasts.showLongWithId("bili_theme_closed_by_account")
         }
     }
 
@@ -192,11 +192,11 @@ object Accounts {
             val topActivity = ApplicationDelegate.getTopActivity()
             if (topActivity != null && !dialogShowing) {
                 AlertDialog.Builder(topActivity)
-                    .setTitle(Utils.getString("biliroaming_blocked_title"))
-                    .setMessage(Utils.getString("biliroaming_blocked_description", banUntil))
-                    .setNegativeButton(Utils.getString("biliroaming_get_it"), null)
-                    .setPositiveButton(Utils.getString("biliroaming_view_reason")) { _, _ ->
-                        val uri = Uri.parse("https://t.me/BiliRoamingServerBlacklistLog")
+                    .setTitle(Utils.getString("bili_blocked_title"))
+                    .setMessage(Utils.getString("bili_blocked_description", banUntil))
+                    .setNegativeButton(Utils.getString("bili_get_it"), null)
+                    .setPositiveButton(Utils.getString("bili_view_reason")) { _, _ ->
+                        val uri = Uri.parse("https://t.me/BiliServerBlacklistLog")
                         topActivity.startActivity(Intent(Intent.ACTION_VIEW, uri))
                     }.create().constraintSize().apply {
                         setCancelable(false)
@@ -212,9 +212,9 @@ object Accounts {
                 val topActivity = ApplicationDelegate.getTopActivity()
                 if (topActivity != null && !dialogShowing) {
                     AlertDialog.Builder(topActivity)
-                        .setTitle(Utils.getString("biliroaming_unblocked_title"))
-                        .setMessage(Utils.getString("biliroaming_unblocked_description"))
-                        .setPositiveButton(Utils.getString("biliroaming_reboot_now")) { _, _ ->
+                        .setTitle(Utils.getString("bili_unblocked_title"))
+                        .setMessage(Utils.getString("bili_unblocked_description"))
+                        .setPositiveButton(Utils.getString("bili_reboot_now")) { _, _ ->
                             Utils.reboot()
                         }.create().constraintSize().apply {
                             setCancelable(false)

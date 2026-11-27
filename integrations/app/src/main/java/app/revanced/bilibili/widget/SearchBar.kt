@@ -22,15 +22,15 @@ class SearchBar(context: Context, hd: Boolean = false) : LinearLayout(context) {
     var onSearch: (String) -> Unit = {}
 
     init {
-        context.inflateLayout("biliroaming_search_bar", this)
+        context.inflateLayout("bili_search_bar", this)
         layoutParams = MarginLayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.MATCH_PARENT,
         )
         gravity = Gravity.CENTER_VERTICAL
         orientation = HORIZONTAL
-        keywordInput = findView("biliroaming_keyword")
-        clearButton = findView("biliroaming_clear")
+        keywordInput = findView("bili_keyword")
+        clearButton = findView("bili_clear")
         clearButton.onClick { keywordInput.setText("") }
         keywordInput.doOnTextChanged { text, _, _, _ ->
             onSearch(text.toString().trim())

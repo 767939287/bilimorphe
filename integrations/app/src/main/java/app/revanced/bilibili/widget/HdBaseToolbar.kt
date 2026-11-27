@@ -48,10 +48,10 @@ class HdBaseToolbar(
             titleView.hide()
             toolbar.addView(searchBar)
         } else if (showSearchMenu) {
-            val menuId = Utils.getResId("biliroaming_menu_item_action_search", "id")
-            val menuTitle = Utils.getString("biliroaming_search")
+            val menuId = Utils.getResId("bili_menu_item_action_search", "id")
+            val menuTitle = Utils.getString("bili_search")
             val searchMenu = toolbar.menu.add(Menu.NONE, menuId, Menu.NONE, menuTitle).apply {
-                icon = Utils.getDrawable(context, "biliroaming_ic_search")
+                icon = Utils.getDrawable(context, "bili_ic_search")
                 setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
                 setOnMenuItemClickListener {
                     onSearchMenuClick()
@@ -71,7 +71,7 @@ class HdBaseToolbar(
     fun tintSearchMenu(menu: MenuItem? = null, garb: Garb = Themes.currentGarb()) {
         if (!showSearchMenu) return
         val searchMenu = menu ?: run {
-            val menuId = Utils.getResId("biliroaming_menu_item_action_search", "id")
+            val menuId = Utils.getResId("bili_menu_item_action_search", "id")
             toolbar.menu.findItem(menuId)
         } ?: return
         val searchMenuIcon = searchMenu.icon ?: return

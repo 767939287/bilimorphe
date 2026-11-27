@@ -36,7 +36,7 @@ object SubtitleImportSavePatch {
     }.onFailure {
         Utils.runOnMainThread(800L) {
             val gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
-            Toasts.showShortWithId("biliroaming_subtitle_import_failed_read", gravity = gravity)
+            Toasts.showShortWithId("bili_subtitle_import_failed_read", gravity = gravity)
         }
         Logger.error(it) { "Failed to read subtitle, type: $type, uri: $uri" }
     }.mapCatching {
@@ -49,7 +49,7 @@ object SubtitleImportSavePatch {
     }.onFailure {
         Utils.runOnMainThread(800L) {
             val gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
-            Toasts.showShortWithId("biliroaming_subtitle_import_failed_convert", gravity = gravity)
+            Toasts.showShortWithId("bili_subtitle_import_failed_convert", gravity = gravity)
         }
         Logger.error(it) { "Failed to convert subtitle, type: $type, uri: $uri" }
     }.getOrNull()
@@ -58,8 +58,8 @@ object SubtitleImportSavePatch {
     @JvmStatic
     @SuppressLint("InlinedApi")
     fun onCreateSubtitleWidget(widget: Any, view: View) {
-        val importButton = view.findView<View?>("biliroaming_import_subtitle") ?: return
-        val saveButton = view.findView<View?>("biliroaming_save_subtitle") ?: return
+        val importButton = view.findView<View?>("bili_import_subtitle") ?: return
+        val saveButton = view.findView<View?>("bili_save_subtitle") ?: return
         if (!Settings.SubtitleImportSave()) {
             importButton.hide()
             saveButton.hide()
@@ -68,10 +68,10 @@ object SubtitleImportSavePatch {
         importButton.show()
         saveButton.show()
         val interactLayerService = widget.getField(
-            "interactLayerServiceForBiliRoaming"
+            "interactLayerServiceForBili"
         ) ?: return
         val widgetService = widget.getField(
-            "widgetServiceForBiliRoaming"
+            "widgetServiceForBili"
         ) ?: return
         importButton.onClick { button ->
             val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
@@ -91,7 +91,7 @@ object SubtitleImportSavePatch {
                     Utils.runOnMainThread(800L) {
                         val gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
                         Toasts.showShortWithId(
-                            "biliroaming_subtitle_import_failed_format",
+                            "bili_subtitle_import_failed_format",
                             gravity = gravity
                         )
                     }
@@ -114,11 +114,11 @@ object SubtitleImportSavePatch {
                 widgetService.callMethod(hideWidgetMethod, widget.getField(widgetTokenField))
                 Utils.runOnMainThread(800L) {
                     val gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
-                    Toasts.showShortWithId("biliroaming_subtitle_import_success", gravity = gravity)
+                    Toasts.showShortWithId("bili_subtitle_import_success", gravity = gravity)
                 }
             }.onFailure {
                 val gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
-                Toasts.showShortWithId("biliroaming_pls_install_file_manager", gravity = gravity)
+                Toasts.showShortWithId("bili_pls_install_file_manager", gravity = gravity)
             }
         }
         saveButton.onClick { button ->
@@ -133,7 +133,7 @@ object SubtitleImportSavePatch {
                     } else if (shouldExplain) {
                         val gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
                         Toasts.showShortWithId(
-                            "biliroaming_write_storage_failed",
+                            "bili_write_storage_failed",
                             gravity = gravity
                         )
                     }
@@ -146,7 +146,7 @@ object SubtitleImportSavePatch {
     private fun saveSubtitles(dmViewReply: DmViewReply) {
         val (main, episode) = VideoInfoHolder.currentTitle() ?: return
         val gravity = Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL
-        Toasts.showShortWithId("biliroaming_subtitle_saving", gravity = gravity)
+        Toasts.showShortWithId("bili_subtitle_saving", gravity = gravity)
         val downloadDir =
             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
         val subtitleDir = File(downloadDir, "bilibili/subtitles")
@@ -187,15 +187,15 @@ object SubtitleImportSavePatch {
             null, null
         )
         if (failedCount != 0 && successCount == 0) {
-            Toasts.showShortWithId("biliroaming_subtitle_save_all_failed", gravity = gravity)
+            Toasts.showShortWithId("bili_subtitle_save_all_failed", gravity = gravity)
         } else if (failedCount != 0) {
             Toasts.showLongWithId(
-                "biliroaming_subtitle_save_partial_success",
+                "bili_subtitle_save_partial_success",
                 saveDir.path, gravity = gravity
             )
         } else {
             Toasts.showLongWithId(
-                "biliroaming_subtitle_save_all_success",
+                "bili_subtitle_save_all_success",
                 saveDir.path, gravity = gravity
             )
         }

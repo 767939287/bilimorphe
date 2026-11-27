@@ -12,7 +12,7 @@ import app.revanced.bilibili.widget.CheckBoxGroupPreference
 abstract class BaseDynamicItemsFragment(
     private val setting: StringSetSetting,
     private val allItems: List<BottomItem>
-) : BiliRoamingBaseSettingFragment() {
+) : BiliBaseSettingFragment() {
     private var hintShown = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,8 +43,8 @@ abstract class BaseDynamicItemsFragment(
         if (allItems.isNotEmpty()) return
         hintShown = true
         AlertDialog.Builder(context)
-            .setMessage(Utils.getString("biliroaming_hint_open_from_mine"))
-            .setPositiveButton(Utils.getString("biliroaming_get_it"), null)
+            .setMessage(Utils.getString("bili_hint_open_from_mine"))
+            .setPositiveButton(Utils.getString("bili_get_it"), null)
             .create().constraintSize().show()
     }
 }

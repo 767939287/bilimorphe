@@ -18,17 +18,17 @@ class FilterDynamicByKeywordFragment : BaseWidgetSettingFragment() {
     ): View {
         val (root, content, saveButton) = rootViewTemplate()
         val (contentGroup, contentRegexSwitch) = content.addKeywordGroup(
-            string("biliroaming_keyword_group_name_content"), 40.dp, true
+            string("bili_keyword_group_name_content"), 40.dp, true
         )
         contentRegexSwitch.isChecked = Settings.DynPurifyContentRegexMode()
         val upNameGroup =
-            content.addKeywordGroup(string("biliroaming_keyword_group_name_up"), 40.dp).first
+            content.addKeywordGroup(string("bili_keyword_group_name_up"), 40.dp).first
         val uidGroup = content.addKeywordGroup(
-            string("biliroaming_keyword_group_name_uid"),
+            string("bili_keyword_group_name_uid"),
             40.dp, inputType = EditorInfo.TYPE_CLASS_NUMBER
         ).first
         val topicGroup =
-            content.addKeywordGroup(string("biliroaming_keyword_group_name_topic"), 40.dp).first
+            content.addKeywordGroup(string("bili_keyword_group_name_topic"), 40.dp).first
         Settings.DynPurifyContent().forEach {
             contentGroup.addView(keywordInputItem(contentGroup, it).first)
         }
@@ -46,7 +46,7 @@ class FilterDynamicByKeywordFragment : BaseWidgetSettingFragment() {
             val contents = contentGroup.getKeywords()
             val contentRegexMode = contentRegexSwitch.isChecked
             if (contentRegexMode && contents.runCatching { forEach { it.toRegex() } }.isFailure) {
-                Toasts.showShortWithId("biliroaming_invalid_regex")
+                Toasts.showShortWithId("bili_invalid_regex")
                 return@onClick
             }
 
@@ -56,7 +56,7 @@ class FilterDynamicByKeywordFragment : BaseWidgetSettingFragment() {
             Settings.DynPurifyUid.save(uidGroup.getKeywords())
             Settings.DynPurifyTopic.save(topicGroup.getKeywords())
 
-            Toasts.showShortWithId("biliroaming_save_success_and_refresh_dynamic")
+            Toasts.showShortWithId("bili_save_success_and_refresh_dynamic")
             parentFragmentManager.popBackStack()
         }
 

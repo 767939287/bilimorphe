@@ -6,12 +6,12 @@ import java.util.List;
 
 public class PlaybackStateCompat {
     // method will added by patcher
-    public long getActionsForBiliRoaming() {
+    public long getActionsForBili() {
         throw new UnsupportedOperationException("Stub");
     }
 
     // method will added by patcher
-    public List<CustomAction> getCustomActionsForBiliRoaming() {
+    public List<CustomAction> getCustomActionsForBili() {
         throw new UnsupportedOperationException("Stub");
     }
 

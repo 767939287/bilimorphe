@@ -72,9 +72,9 @@ object PlayerGestureDetectorPatch {
             player.restore()
             Utils.runOnMainThread(300L) {
                 val text = if (newRatio == AspectRatio.RATIO_CENTER_CROP) {
-                    Utils.getString("biliroaming_ratio_fill_done")
+                    Utils.getString("bili_ratio_fill_done")
                 } else {
-                    Utils.getString("biliroaming_ratio_restore_done")
+                    Utils.getString("bili_ratio_restore_done")
                 }
                 player.showTextToast(text, center = true)
                 vibrate(30)

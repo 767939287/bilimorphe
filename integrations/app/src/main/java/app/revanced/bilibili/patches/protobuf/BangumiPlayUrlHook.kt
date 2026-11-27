@@ -2,8 +2,8 @@ package app.revanced.bilibili.patches.protobuf
 
 import android.util.SparseArray
 import app.revanced.bilibili.account.Accounts
-import app.revanced.bilibili.api.BiliRoamingApi.getPlayUrl
-import app.revanced.bilibili.api.BiliRoamingApi.getSeason
+import app.revanced.bilibili.api.BiliApi.getPlayUrl
+import app.revanced.bilibili.api.BiliApi.getSeason
 import app.revanced.bilibili.api.CustomServerException
 import app.revanced.bilibili.patches.TrialQualityPatch
 import app.revanced.bilibili.patches.VideoQualityPatch

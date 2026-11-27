@@ -5,11 +5,11 @@ import com.bilibili.lib.ui.BaseFragment;
 public class BangumiSearchResultFragment extends BaseFragment {
 
     // method will added by patcher
-    public int getTypeForBiliRoaming() {
+    public int getTypeForBili() {
         return 0;
     }
 
     // method will added by patcher
-    public void setTypeForBiliRoaming(int type) {
+    public void setTypeForBili(int type) {
     }
 }

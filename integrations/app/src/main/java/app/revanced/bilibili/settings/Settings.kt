@@ -282,7 +282,7 @@ object Settings {
     // region Group: 非配置项
     @JvmField val LosslessEnabled = BooleanSetting(key = "lossless_enabled")
     @JvmField val BgPlayingEnabled = BooleanSetting(key = "bg_playing_enabled")
-    @JvmField val CustomColor = IntSetting(key = "biliroaming_custom_color", defValue = Color.WHITE)
+    @JvmField val CustomColor = IntSetting(key = "bili_custom_color", defValue = Color.WHITE)
     @JvmField val SkinJson = StringSetting(key = "skin_json", dependency = Skin)
     @JvmField val SelectedPlaybackSpeed = FloatSetting(key = "selected_playback_speed")
     // endregion

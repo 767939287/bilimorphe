@@ -33,7 +33,7 @@ object CouponAutoReceiver {
         val shareExp = if (receiveShareExperience()) "每日视频分享经验" else null
         arrayOf(coupon, vipExp, shareExp).filterNotNull().joinToString("、")
             .takeIf { it.isNotEmpty() }?.let {
-                Toasts.showLongWithId("biliroaming_coupon_receive_success", it)
+                Toasts.showLongWithId("bili_coupon_receive_success", it)
             }
     } else Unit
 

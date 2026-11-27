@@ -9,8 +9,8 @@ import android.widget.TextView
 import androidx.annotation.Keep
 import androidx.fragment.app.Fragment
 import app.revanced.bilibili.account.Accounts
-import app.revanced.bilibili.api.BiliRoamingApi.getAreaSearchBangumi
-import app.revanced.bilibili.api.BiliRoamingApi.getSeason
+import app.revanced.bilibili.api.BiliApi.getAreaSearchBangumi
+import app.revanced.bilibili.api.BiliApi.getSeason
 import app.revanced.bilibili.patches.main.VideoInfoHolder
 import app.revanced.bilibili.settings.Setting
 import app.revanced.bilibili.settings.Settings
@@ -433,8 +433,8 @@ object BangumiSeasonHook {
     fun onSearchResultFragmentVisible(fragment: OgvSearchResultFragment) {
         val from = fragment.arguments?.getString("from") ?: return
         for (type in searchTypes) {
-            if (type.value.area.value == from && fragment.typeForBiliRoaming == type.value.type.toInt()) {
-                fragment.typeForBiliRoaming = type.key
+            if (type.value.area.value == from && fragment.typeForBili == type.value.type.toInt()) {
+                fragment.typeForBili = type.key
                 break
             }
         }
@@ -445,8 +445,8 @@ object BangumiSeasonHook {
     fun onSearchResultFragmentVisible(fragment: com.bilibili.search2.ogv.OgvSearchResultFragment) {
         val from = fragment.arguments?.getString("from") ?: return
         for (type in searchTypes) {
-            if (type.value.area.value == from && fragment.typeForBiliRoaming == type.value.type.toInt()) {
-                fragment.typeForBiliRoaming = type.key
+            if (type.value.area.value == from && fragment.typeForBili == type.value.type.toInt()) {
+                fragment.typeForBili = type.key
                 break
             }
         }
@@ -457,8 +457,8 @@ object BangumiSeasonHook {
     fun onSearchResultFragmentVisible(fragment: BangumiSearchResultFragment) {
         val from = fragment.arguments?.getString("from") ?: return
         for (type in searchTypes) {
-            if (type.value.area.value == from && fragment.typeForBiliRoaming == type.value.type.toInt()) {
-                fragment.typeForBiliRoaming = type.key
+            if (type.value.area.value == from && fragment.typeForBili == type.value.type.toInt()) {
+                fragment.typeForBili = type.key
                 break
             }
         }

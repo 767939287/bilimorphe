@@ -10,8 +10,8 @@ import app.revanced.bilibili.settings.Settings
 import app.revanced.bilibili.settings.search.annotation.SettingFragment
 import app.revanced.bilibili.utils.*
 
-@SettingFragment("biliroaming_setting_customize_player")
-class CustomizePlayerFragment : BiliRoamingBaseSettingFragment() {
+@SettingFragment("bili_setting_customize_player")
+class CustomizePlayerFragment : BiliBaseSettingFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
         findPreference<Preference>("default_speed")?.onClick { onPlaybackSpeedClick(false) }
@@ -21,12 +21,12 @@ class CustomizePlayerFragment : BiliRoamingBaseSettingFragment() {
     }
 
     private fun onPlaybackSpeedClick(longPress: Boolean): Boolean {
-        val titleId = if (longPress) "biliroaming_long_press_speed_title"
-        else "biliroaming_default_speed_title"
+        val titleId = if (longPress) "bili_long_press_speed_title"
+        else "bili_default_speed_title"
         val setting = if (longPress) Settings.LongPressPlaybackSpeed
         else Settings.DefaultPlaybackSpeed
         val editText = EditText(context)
-        editText.hint = Utils.getString("biliroaming_default_speed_hint")
+        editText.hint = Utils.getString("bili_default_speed_hint")
         editText.setText(setting.takeIf { !it.isSetToDefault() }?.get()?.toString().orEmpty())
         editText.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
         AlertDialog.Builder(context)
@@ -40,15 +40,15 @@ class CustomizePlayerFragment : BiliRoamingBaseSettingFragment() {
                     if (text.isEmpty()) {
                         setting.restoreToDefault()
                         dismiss()
-                        Toasts.showShortWithId("biliroaming_save_ok")
+                        Toasts.showShortWithId("bili_save_ok")
                         return@onClick
                     }
                     val speed = text.toFloatOrNull()
                     if (speed == null || speed <= 0f || !speed.isFinite()) {
-                        Toasts.showShortWithId("biliroaming_speed_invalid")
+                        Toasts.showShortWithId("bili_speed_invalid")
                     } else {
                         setting.save(speed)
-                        Toasts.showShortWithId("biliroaming_save_ok")
+                        Toasts.showShortWithId("bili_save_ok")
                         dismiss()
                     }
                 }
@@ -59,10 +59,10 @@ class CustomizePlayerFragment : BiliRoamingBaseSettingFragment() {
     private fun onPlaybackSpeedOverrideClick(): Boolean {
         val editText = EditText(context)
         editText.inputType = InputType.TYPE_CLASS_TEXT
-        editText.hint = Utils.getString("biliroaming_speed_override_hint")
+        editText.hint = Utils.getString("bili_speed_override_hint")
         editText.setText(Settings.OverridePlaybackSpeed())
         AlertDialog.Builder(context)
-            .setTitle(Utils.getString("biliroaming_speed_override_title"))
+            .setTitle(Utils.getString("bili_speed_override_title"))
             .setView(editText)
             .setPositiveButton(android.R.string.ok, null)
             .setNegativeButton(android.R.string.cancel, null)
@@ -72,7 +72,7 @@ class CustomizePlayerFragment : BiliRoamingBaseSettingFragment() {
                     if (text.isEmpty()) {
                         Settings.OverridePlaybackSpeed.restoreToDefault()
                         dismiss()
-                        Toasts.showShortWithId("biliroaming_save_ok")
+                        Toasts.showShortWithId("bili_save_ok")
                         return@onClick
                     }
                     val speedList = text.runCatchingOrNull {
@@ -80,14 +80,14 @@ class CustomizePlayerFragment : BiliRoamingBaseSettingFragment() {
                             .map { it.toFloat() }.filter { it > 0f && it.isFinite() }
                     }
                     if (speedList == null) {
-                        Toasts.showShortWithId("biliroaming_speed_invalid")
+                        Toasts.showShortWithId("bili_speed_invalid")
                     } else if (!speedList.contains(1f)) {
-                        Toasts.showShortWithId("biliroaming_speed_override_must")
+                        Toasts.showShortWithId("bili_speed_override_must")
                     } else {
                         val formatSpeedText = speedList.joinToString(" ")
                         Settings.OverridePlaybackSpeed.save(formatSpeedText)
                         dismiss()
-                        Toasts.showShortWithId("biliroaming_save_ok")
+                        Toasts.showShortWithId("bili_save_ok")
                     }
                 }
             }.show()
@@ -95,14 +95,14 @@ class CustomizePlayerFragment : BiliRoamingBaseSettingFragment() {
     }
 
     private fun onCustomAccessKey(): Boolean {
-        val layout = hostContext.inflateLayout("biliroaming_dialog_access_key")
-        val mainEdit = layout.findView<EditText>("biliroaming_key_main")
-        val thEdit = layout.findView<EditText>("biliroaming_key_th")
+        val layout = hostContext.inflateLayout("bili_dialog_access_key")
+        val mainEdit = layout.findView<EditText>("bili_key_main")
+        val thEdit = layout.findView<EditText>("bili_key_th")
         mainEdit.setText(Settings.AccessKeyMain())
         thEdit.setText(Settings.AccessKeyThailand())
         AlertDialog.Builder(context)
             .setView(layout)
-            .setTitle(Utils.getString("biliroaming_custom_access_key_title"))
+            .setTitle(Utils.getString("bili_custom_access_key_title"))
             .setPositiveButton(android.R.string.ok) { _, _ ->
                 Settings.AccessKeyMain.save(mainEdit.text.toString().trim())
                 Settings.AccessKeyThailand.save(thEdit.text.toString().trim())

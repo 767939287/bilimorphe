@@ -33,15 +33,15 @@ class CustomizeSubtitleStyleFragment : BaseWidgetSettingFragment() {
     ): View {
         val (root, content, saveButton) = rootViewTemplate()
 
-        val styleSwitch = switchPrefsItem(string("biliroaming_subtitle_style_switch_title"))
+        val styleSwitch = switchPrefsItem(string("bili_subtitle_style_switch_title"))
             .let { content.addView(it.first); it.second }
         styleSwitch.isChecked = Settings.EnableCustomSubtitleStyle()
 
-        val removeBgSwitch = switchPrefsItem(string("biliroaming_custom_subtitle_remove_bg"))
+        val removeBgSwitch = switchPrefsItem(string("bili_custom_subtitle_remove_bg"))
             .let { content.addView(it.first); it.second }
         removeBgSwitch.isChecked = Settings.RemoveSubtitleBg()
 
-        val boldSwitch = switchPrefsItem(string("biliroaming_custom_subtitle_bold"))
+        val boldSwitch = switchPrefsItem(string("bili_custom_subtitle_bold"))
             .let { content.addView(it.first); it.second }
         boldSwitch.isChecked = Settings.BoldSubtitleText()
 
@@ -51,9 +51,9 @@ class CustomizeSubtitleStyleFragment : BaseWidgetSettingFragment() {
         ).let { content.addView(it.first); it.second }
 
         val fillColor = textInputWithButtonItem(
-            name = string("biliroaming_custom_subtitle_fill_color"),
+            name = string("bili_custom_subtitle_fill_color"),
             text = Settings.SubtitleFillColor(),
-            buttonName = string("biliroaming_custom_subtitle_pick_color"),
+            buttonName = string("bili_custom_subtitle_pick_color"),
             maxLength = 8,
             digits = "0123456789abcdefABCDEF"
         ) {
@@ -63,27 +63,27 @@ class CustomizeSubtitleStyleFragment : BaseWidgetSettingFragment() {
         }.let { content.addView(it.first); it.second }
 
         val fontSizePortrait = textInputWithButtonItem(
-            name = string("biliroaming_custom_subtitle_font_size_portrait"),
+            name = string("bili_custom_subtitle_font_size_portrait"),
             text = Settings.SubtitleFontSizePortrait().toString()
                 .let { if (it == "0") "" else it },
-            hint = string("biliroaming_custom_subtitle_empty_as_default"),
+            hint = string("bili_custom_subtitle_empty_as_default"),
             type = EditorInfo.TYPE_CLASS_NUMBER,
             maxLength = 3,
         ).let { content.addView(it.first); it.second }
 
         val fontSizeLandscape = textInputWithButtonItem(
-            name = string("biliroaming_custom_subtitle_font_size_landscape"),
+            name = string("bili_custom_subtitle_font_size_landscape"),
             text = Settings.SubtitleFontSizeLandscape().toString()
                 .let { if (it == "0") "" else it },
-            hint = string("biliroaming_custom_subtitle_empty_as_default"),
+            hint = string("bili_custom_subtitle_empty_as_default"),
             type = EditorInfo.TYPE_CLASS_NUMBER,
             maxLength = 3,
         ).let { content.addView(it.first); it.second }
 
         val strokeColor = textInputWithButtonItem(
-            name = string("biliroaming_custom_subtitle_stroke_color"),
+            name = string("bili_custom_subtitle_stroke_color"),
             text = Settings.SubtitleStrokeColor(),
-            buttonName = string("biliroaming_custom_subtitle_pick_color"),
+            buttonName = string("bili_custom_subtitle_pick_color"),
             maxLength = 8,
             digits = "0123456789abcdefABCDEF"
         ) {
@@ -93,17 +93,17 @@ class CustomizeSubtitleStyleFragment : BaseWidgetSettingFragment() {
         }.let { content.addView(it.first); it.second }
 
         val strokeWidth = textInputWithButtonItem(
-            name = string("biliroaming_custom_subtitle_stroke_width"),
+            name = string("bili_custom_subtitle_stroke_width"),
             text = Settings.SubtitleStrokeWidth().toString(),
             type = EditorInfo.TYPE_CLASS_NUMBER or EditorInfo.TYPE_NUMBER_FLAG_DECIMAL,
             maxLength = 6,
         ).let { content.addView(it.first); it.second }
 
         val offset = textInputWithButtonItem(
-            name = string("biliroaming_custom_subtitle_offset"),
+            name = string("bili_custom_subtitle_offset"),
             text = Settings.SubtitleOffset().toString()
                 .let { if (it == "0") "" else it },
-            hint = string("biliroaming_custom_subtitle_offset_hint"),
+            hint = string("bili_custom_subtitle_offset_hint"),
             type = EditorInfo.TYPE_CLASS_NUMBER or EditorInfo.TYPE_NUMBER_FLAG_SIGNED,
             maxLength = 4,
         ).let { content.addView(it.first); it.second }
@@ -160,11 +160,11 @@ class CustomizeSubtitleStyleFragment : BaseWidgetSettingFragment() {
             Intent.createChooser(Intent(Intent.ACTION_GET_CONTENT).apply {
                 type = "font/*"
                 addCategory(Intent.CATEGORY_OPENABLE)
-            }, Utils.getString("biliroaming_choose_font_file_title")),
+            }, Utils.getString("bili_choose_font_file_title")),
             2338
         )
     } catch (ex: ActivityNotFoundException) {
-        Toasts.showShortWithId("biliroaming_pls_install_file_manager")
+        Toasts.showShortWithId("bili_pls_install_file_manager")
     }
 
     private fun refreshFontStatus() {
@@ -178,9 +178,9 @@ class CustomizeSubtitleStyleFragment : BaseWidgetSettingFragment() {
                 }
             }.onFailure {
                 Logger.error(it) { "Font parse filed" }
-            }.getOrNull() ?: string("biliroaming_custom_subtitle_status_custom")
+            }.getOrNull() ?: string("bili_custom_subtitle_status_custom")
         } else {
-            string("biliroaming_custom_subtitle_status_default")
+            string("bili_custom_subtitle_status_default")
         }
     }
 
@@ -197,7 +197,7 @@ class CustomizeSubtitleStyleFragment : BaseWidgetSettingFragment() {
             ).apply { weight = 1F }
         }
         val textView = tintView<TextView>().apply {
-            text = string("biliroaming_custom_subtitle_font")
+            text = string("bili_custom_subtitle_font")
             setTextSize(TypedValue.COMPLEX_UNIT_SP, 16F)
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -229,7 +229,7 @@ class CustomizeSubtitleStyleFragment : BaseWidgetSettingFragment() {
         }
         val resetButton = TintButton(context).apply {
             setBackgroundTintList(Utils.getResId("Wh0", "color"))
-            text = string("biliroaming_custom_subtitle_reset")
+            text = string("bili_custom_subtitle_reset")
             onClick { onReset() }
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -238,7 +238,7 @@ class CustomizeSubtitleStyleFragment : BaseWidgetSettingFragment() {
         }
         val importButton = TintButton(context).apply {
             setBackgroundTintList(Utils.getResId("Wh0", "color"))
-            text = string("biliroaming_custom_subtitle_import")
+            text = string("bili_custom_subtitle_import")
             onClick { onImport() }
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,

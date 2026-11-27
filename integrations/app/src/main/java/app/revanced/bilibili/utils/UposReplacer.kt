@@ -10,11 +10,11 @@ import java.util.concurrent.TimeUnit
 
 object UposReplacer {
 
-    private val aliHost = Utils.getString("biliroaming_ali_host")
-    private val cosHost = Utils.getString("biliroaming_cos_host")
-    private val hwHost = Utils.getString("biliroaming_hw_host")
-    private val aliovHost = Utils.getString("biliroaming_aliov_host")
-    private val hkBcacheHost = Utils.getString("biliroaming_hk_bcache_host")
+    private val aliHost = Utils.getString("bili_ali_host")
+    private val cosHost = Utils.getString("bili_cos_host")
+    private val hwHost = Utils.getString("bili_hw_host")
+    private val aliovHost = Utils.getString("bili_aliov_host")
+    private val hkBcacheHost = Utils.getString("bili_hk_bcache_host")
 
     private val isLocatedInCn by lazy { area.let { it == null || it == Area.China } }
 
@@ -31,7 +31,7 @@ object UposReplacer {
 
     val replaceUpos inline get() = uposBase != Constants.NON_UPOS_VALUE
 
-    private val uposList = Utils.getStringArray("biliroaming_upos_values")
+    private val uposList = Utils.getStringArray("bili_upos_values")
     private val extraUposList: List<String>
         get() = when (uposList.indexOf(uposBase)) {
             in 1..4/* ali */ -> listOf(hwHost, cosHost)

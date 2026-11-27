@@ -24,8 +24,8 @@ import java.nio.file.attribute.FileTime
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
-@SettingFragment("biliroaming_setting_about")
-class AboutFragment : BiliRoamingBaseSettingFragment() {
+@SettingFragment("bili_setting_about")
+class AboutFragment : BiliBaseSettingFragment() {
     @Keep
     private var checkUpdateMethod = ""
 
@@ -33,25 +33,25 @@ class AboutFragment : BiliRoamingBaseSettingFragment() {
         super.onCreate(savedInstanceState)
         findPreference<Preference>("version")?.run {
             summary =
-                Utils.getString("biliroaming_version_summary_pattern", BuildConfig.VERSION_NAME)
+                Utils.getString("bili_version_summary_pattern", BuildConfig.VERSION_NAME)
             onClick { onVersionClick(); true }
         }
         findPreference<Preference>("debug")?.summary =
-            Utils.getString("biliroaming_debug_summary", logFile.absolutePath)
+            Utils.getString("bili_debug_summary", logFile.absolutePath)
         findPreference<Preference>("feedback")?.onClick {
-            val uri = Uri.parse(Utils.getString("biliroaming_feedback_url"))
+            val uri = Uri.parse(Utils.getString("bili_feedback_url"))
             val intent = Intent(Intent.ACTION_VIEW, uri)
             startActivity(intent)
             true
         }
         findPreference<Preference>("project_url")?.onClick {
-            val uri = Uri.parse(Utils.getString("biliroaming_project_url"))
+            val uri = Uri.parse(Utils.getString("bili_project_url"))
             val intent = Intent(Intent.ACTION_VIEW, uri)
             startActivity(intent)
             true
         }
         findPreference<Preference>("tg_link")?.onClick {
-            val uri = Uri.parse(Utils.getString("biliroaming_tg_url"))
+            val uri = Uri.parse(Utils.getString("bili_tg_url"))
             val intent = Intent(Intent.ACTION_VIEW, uri)
             startActivity(intent)
             true
@@ -116,11 +116,11 @@ class AboutFragment : BiliRoamingBaseSettingFragment() {
                 putExtra(Intent.EXTRA_STREAM, uri)
                 addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 setType("application/zip")
-            }, Utils.getString("biliroaming_share_log_title")).also { startActivity(it) }
+            }, Utils.getString("bili_share_log_title")).also { startActivity(it) }
         }
     }.onFailure {
         Logger.error(it) { "Failed to share log" }
-        Toasts.showShortWithId("biliroaming_log_share_failed")
+        Toasts.showShortWithId("bili_log_share_failed")
     }
 
     private fun onVersionClick() {
@@ -152,7 +152,7 @@ class AboutFragment : BiliRoamingBaseSettingFragment() {
                 return@runOnMainThread
             val prefs = findPreference<Preference>("version")
             if (prefs != null) {
-                val newVersion = Utils.getString("biliroaming_found_new_version", version)
+                val newVersion = Utils.getString("bili_found_new_version", version)
                 prefs.summary = prefs.summary?.toString().orEmpty() + newVersion
             }
         }
@@ -209,8 +209,8 @@ class AboutFragment : BiliRoamingBaseSettingFragment() {
             AlertDialog.Builder(context)
                 .setTitle(styledTitle)
                 .setView(wrapperView)
-                .setPositiveButton(Utils.getString("biliroaming_view")) { _, _ ->
-                    val tagUrl = "https://github.com/BiliRoamingX/BiliRoamingX/releases/tag/$tag"
+                .setPositiveButton(Utils.getString("bili_view")) { _, _ ->
+                    val tagUrl = "https://github.com/BiliX/BiliX/releases/tag/$tag"
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(tagUrl))
                     startActivity(intent)
                 }
@@ -220,7 +220,7 @@ class AboutFragment : BiliRoamingBaseSettingFragment() {
     }
 
     private fun latestRelease() = runCatching {
-        val releaseUrl = "https://api.github.com/repos/BiliRoamingX/BiliRoamingX/releases/latest"
+        val releaseUrl = "https://api.github.com/repos/BiliX/BiliX/releases/latest"
         val response = HttpClient.get(releaseUrl)?.json()
             ?: return@runCatching null
         val tag = response.optString("tag_name")

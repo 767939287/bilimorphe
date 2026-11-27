@@ -9,7 +9,7 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import app.revanced.bilibili.api.BiliRoamingApi.getPlayUrl
+import app.revanced.bilibili.api.BiliApi.getPlayUrl
 import app.revanced.bilibili.api.CustomServerException
 import app.revanced.bilibili.settings.Settings
 import app.revanced.bilibili.utils.*
@@ -99,7 +99,7 @@ class SpeedTestAdapter(private val context: Context) : ArrayAdapter<SpeedTestRes
         return (convertView as? SpeedTestItemView ?: SpeedTestItemView(context)).apply {
             getItem(position)?.let {
                 name = it.name
-                speed = Utils.getString("biliroaming_speed_formatter", it.speed)
+                speed = Utils.getString("bili_speed_formatter", it.speed)
                 selected = it.selected
             }
         }
@@ -129,12 +129,12 @@ class SpeedTestDialog(context: Context, onDismiss: (Boolean) -> Unit) :
             SpeedTestItemView(
                 context,
                 name = "UPOS",
-                speed = Utils.getString("biliroaming_speed")
+                speed = Utils.getString("bili_speed")
             ), null, false
         )
         view.setPadding(16.dp, 10.dp, 16.dp, 10.dp)
         setView(view)
-        setPositiveButton(Utils.getString("biliroaming_close"), null)
+        setPositiveButton(Utils.getString("bili_close"), null)
         setOnDismissListener {
             speedTestExecutor.shutdown()
             onDismiss(changed)
@@ -149,24 +149,24 @@ class SpeedTestDialog(context: Context, onDismiss: (Boolean) -> Unit) :
             }
             adapter.notifyDataSetChanged()
             changed = true
-            Toasts.showShortWithId("biliroaming_upos_enabled", name)
+            Toasts.showShortWithId("bili_upos_enabled", name)
         }
 
-        setTitle(Utils.getString("biliroaming_test_upos_title"))
+        setTitle(Utils.getString("bili_test_upos_title"))
     }
 
     override fun show(): AlertDialog {
         val dialog = super.create().constraintSize(maxHeight = -1).apply { show() }
-        dialog.setTitle(Utils.getString("biliroaming_speed_testing"))
-        val results = Utils.getStringArray("biliroaming_upos_entries")
-            .zip(Utils.getStringArray("biliroaming_upos_values"))
+        dialog.setTitle(Utils.getString("bili_speed_testing"))
+        val results = Utils.getStringArray("bili_upos_entries")
+            .zip(Utils.getStringArray("bili_upos_values"))
             .map { (name, value) ->
                 SpeedTestResult(name, value, "...", value == Settings.UposHost())
             }.also { adapter.addAll(it) }
         speedTestExecutor.execute {
             val url = getTestUrl() ?: run {
                 Utils.runOnMainThread {
-                    dialog.setTitle(Utils.getString("biliroaming_speed_test_failed"))
+                    dialog.setTitle(Utils.getString("bili_speed_test_failed"))
                 }
                 return@execute
             }
@@ -177,7 +177,7 @@ class SpeedTestDialog(context: Context, onDismiss: (Boolean) -> Unit) :
                 }
             }
             Utils.runOnMainThread {
-                dialog.setTitle(Utils.getString("biliroaming_speed_test_ok"))
+                dialog.setTitle(Utils.getString("bili_speed_test_ok"))
             }
         }
         return dialog

@@ -170,7 +170,7 @@ abstract class BaseWidgetSettingFragment : BaseFragment() {
         }
         val addView = TintButton(context).apply {
             setBackgroundTintList(Utils.getResId("Wh0", "color"))
-            text = string("biliroaming_keyword_group_add")
+            text = string("bili_keyword_group_add")
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -181,7 +181,7 @@ abstract class BaseWidgetSettingFragment : BaseFragment() {
         }
         val clearView = TintButton(context).apply {
             setBackgroundTintList(Utils.getResId("Wh0", "color"))
-            text = string("biliroaming_keyword_group_clear")
+            text = string("bili_keyword_group_clear")
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -192,7 +192,7 @@ abstract class BaseWidgetSettingFragment : BaseFragment() {
             hide()
         }
         val regexModeView = tintView<TextView>().apply {
-            text = string("biliroaming_regex_mode")
+            text = string("bili_regex_mode")
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -238,7 +238,7 @@ abstract class BaseWidgetSettingFragment : BaseFragment() {
         }
         val button = TintButton(context).apply {
             setBackgroundTintList(Utils.getResId("Wh0", "color"))
-            text = string("biliroaming_keyword_group_delete")
+            text = string("bili_keyword_group_delete")
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -336,7 +336,7 @@ abstract class BaseWidgetSettingFragment : BaseFragment() {
     protected fun seekBarItem(
         name: String,
         current: Int,
-        indicator: String = string("biliroaming_text_fold_line"),
+        indicator: String = string("bili_text_fold_line"),
         zeroIndicator: String = "",
         max: Int = 100,
     ): Pair<LinearLayout, SeekBar> {
@@ -400,7 +400,7 @@ abstract class BaseWidgetSettingFragment : BaseFragment() {
     protected fun saveButton() = tintView<TextView>().apply {
         setBackgroundResource(Utils.getResId("Wh0", "color"))
         setRippleForeground()
-        text = string("biliroaming_save")
+        text = string("bili_save")
         setTextSize(TypedValue.COMPLEX_UNIT_SP, 16F)
         gravity = Gravity.CENTER
         minHeight = 48.dp
@@ -419,8 +419,8 @@ abstract class BaseWidgetSettingFragment : BaseFragment() {
             )
         }
         if (Utils.isHd()) {
-            val title = arguments?.getString(BiliRoamingBaseSettingFragment.EXTRA_TITLE).orEmpty()
-                .ifEmpty { string("biliroaming_settings_title") }
+            val title = arguments?.getString(BiliBaseSettingFragment.EXTRA_TITLE).orEmpty()
+                .ifEmpty { string("bili_settings_title") }
             val toolbar = HdBaseToolbar(
                 hostContext, title,
                 showSearchMenu = false,

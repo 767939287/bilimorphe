@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.annotation.Keep
 import app.revanced.bilibili.patches.drawer.DrawerPatch
 import app.revanced.bilibili.settings.Settings
-import app.revanced.bilibili.settings.fragments.BiliRoamingSettingsFragment
+import app.revanced.bilibili.settings.fragments.BiliSettingsFragment
 import app.revanced.bilibili.utils.Utils
 import app.revanced.bilibili.utils.constraintSize
 import com.bilibili.app.preferences.BiliPreferencesActivity
@@ -43,16 +43,16 @@ object MainActivityDelegate {
     private fun showHintIfNeeded(context: Context) {
         if (Settings.ShowHint() || Utils.isHd()) return
         AlertDialog.Builder(context)
-            .setTitle(Utils.getString("biliroaming_usage_hint_title"))
-            .setMessage(Utils.getString("biliroaming_usage_hint_message"))
-            .setPositiveButton(Utils.getString("biliroaming_jump_settings")) { _, _ ->
+            .setTitle(Utils.getString("bili_usage_hint_title"))
+            .setMessage(Utils.getString("bili_usage_hint_message"))
+            .setPositiveButton(Utils.getString("bili_jump_settings")) { _, _ ->
                 Settings.ShowHint.save(true)
                 val intent = Intent(context, BiliPreferencesActivity::class.java)
-                intent.putExtra("extra:key:fragment", BiliRoamingSettingsFragment::class.java.name)
-                intent.putExtra("extra:key:title", Utils.getString("biliroaming_settings_title"))
+                intent.putExtra("extra:key:fragment", BiliSettingsFragment::class.java.name)
+                intent.putExtra("extra:key:title", Utils.getString("bili_settings_title"))
                 context.startActivity(intent)
             }
-            .setNegativeButton(Utils.getString("biliroaming_get_it")) { _, _ ->
+            .setNegativeButton(Utils.getString("bili_get_it")) { _, _ ->
                 Settings.ShowHint.save(true)
             }.create().constraintSize().show()
     }

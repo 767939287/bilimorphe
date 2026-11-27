@@ -19,7 +19,7 @@ object DarkSwitchPatch {
         if (Utils.isNightFollowSystem()) {
             val context = (listener as Fragment).context
             AlertDialog.Builder(context)
-                .setMessage(Utils.getString("biliroaming_switch_dark_tips"))
+                .setMessage(Utils.getString("bili_switch_dark_tips"))
                 .setPositiveButton(android.R.string.ok) { _, _ ->
                     listener.switchDarkMode_Origin(report)
                 }

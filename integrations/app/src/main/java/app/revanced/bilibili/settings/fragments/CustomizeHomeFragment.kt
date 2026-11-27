@@ -10,8 +10,8 @@ import app.revanced.bilibili.utils.setDeviceSetting
 import com.bapis.bilibili.app.distribution.Int64Value
 import com.bapis.bilibili.app.distribution.setting.pegasus.PegasusDeviceWithoutFplocalConfig
 
-@SettingFragment("biliroaming_setting_customize_home")
-class CustomizeHomeFragment : BiliRoamingBaseSettingFragment() {
+@SettingFragment("bili_setting_customize_home")
+class CustomizeHomeFragment : BiliBaseSettingFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
         disablePreference(Settings.Drawer.key, PrefsDisableReason.AppVersion) {

@@ -2,7 +2,7 @@ package app.revanced.bilibili.settings.search
 
 import androidx.fragment.app.Fragment
 import app.revanced.bilibili.gen.getSearchFragmentsMap
-import app.revanced.bilibili.settings.fragments.BiliRoamingSettingsFragment
+import app.revanced.bilibili.settings.fragments.BiliSettingsFragment
 import app.revanced.bilibili.utils.Utils
 import app.revanced.bilibili.utils.runCatchingOrNull
 import org.xmlpull.v1.XmlPullParser
@@ -69,7 +69,7 @@ object SearchManager {
     @JvmStatic
     fun search(keyword: String): List<PreferenceItem> {
         return readAllPreferences().sortedByDescending { it.calScore(keyword) }
-            .filterNot { it.belongFragment == BiliRoamingSettingsFragment::class.java || it.score == 0 }
+            .filterNot { it.belongFragment == BiliSettingsFragment::class.java || it.score == 0 }
     }
 
     @Suppress("UNCHECKED_CAST")

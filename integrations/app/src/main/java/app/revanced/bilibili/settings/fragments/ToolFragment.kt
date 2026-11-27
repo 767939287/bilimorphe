@@ -27,14 +27,14 @@ import app.revanced.bilibili.widget.RecyclerViewAdapter
 import app.revanced.bilibili.widget.RecyclerViewHolder
 import app.revanced.bilibili.widget.disableChangeAnimations
 
-@SettingFragment("biliroaming_setting_tool")
-class ToolFragment : BiliRoamingBaseSettingFragment() {
+@SettingFragment("bili_setting_tool")
+class ToolFragment : BiliBaseSettingFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
         findPreference<Preference>("route")?.onClick { route();true }
         findPreference<Preference>("export_access_key")?.onClick {
             setClipboardContent(content = Accounts.accessKey)
-            Toasts.showShortWithId("biliroaming_access_key_copied")
+            Toasts.showShortWithId("bili_access_key_copied")
             true
         }
         findPreference<Preference>("export_cache_video")?.onClick {
@@ -50,11 +50,11 @@ class ToolFragment : BiliRoamingBaseSettingFragment() {
     private fun route() {
         val editText = EditText(context)
         editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_URI
-        val hintUrl = Utils.getString("biliroaming_route_hint")
+        val hintUrl = Utils.getString("bili_route_hint")
         editText.hint = hintUrl
         AlertDialog.Builder(context)
             .setView(editText)
-            .setTitle(Utils.getString("biliroaming_route_title"))
+            .setTitle(Utils.getString("bili_route_title"))
             .setNegativeButton(android.R.string.cancel, null)
             .setPositiveButton("Go") { _, _ ->
                 val editUrl = editText.text.toString().trim()
@@ -62,11 +62,11 @@ class ToolFragment : BiliRoamingBaseSettingFragment() {
                 runCatching {
                     Utils.routeTo(uri, context)
                     if (editUrl.isEmpty()) Utils.runOnMainThread(300) {
-                        Toasts.showShortWithId("biliroaming_you_were_cheated")
+                        Toasts.showShortWithId("bili_you_were_cheated")
                     }
                 }.onFailure {
                     Logger.error(it) { "route failed, uri: $uri" }
-                    Toasts.showShortWithId("biliroaming_open_failed")
+                    Toasts.showShortWithId("bili_open_failed")
                 }
             }.create().onShow {
                 getButton(DialogInterface.BUTTON_POSITIVE).isAllCaps = false
@@ -76,7 +76,7 @@ class ToolFragment : BiliRoamingBaseSettingFragment() {
     private fun showExportSelectDialog() = Utils.async {
         val entries = VideoExporter.readAllCacheVideos()
         if (entries.isEmpty()) {
-            Toasts.showShortWithId("biliroaming_cache_not_found")
+            Toasts.showShortWithId("bili_cache_not_found")
             return@async
         }
         Utils.runOnMainThread {
@@ -90,9 +90,9 @@ class ToolFragment : BiliRoamingBaseSettingFragment() {
                 updatePadding(top = 4.dp)
             }
             AlertDialog.Builder(context)
-                .setTitle(Utils.getString("biliroaming_export_cache_video_title"))
+                .setTitle(Utils.getString("bili_export_cache_video_title"))
                 .setView(recyclerView)
-                .setPositiveButton(Utils.getString("biliroaming_export")) { _, _ ->
+                .setPositiveButton(Utils.getString("bili_export")) { _, _ ->
                     val selections = entries.filter { it.selected }
                     if (selections.isNotEmpty()) {
                         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
@@ -103,13 +103,13 @@ class ToolFragment : BiliRoamingBaseSettingFragment() {
                                 if (granted) {
                                     VideoExporter.exportVideos(selections)
                                 } else if (shouldExplain) {
-                                    Toasts.showShortWithId("biliroaming_write_storage_failed")
+                                    Toasts.showShortWithId("bili_write_storage_failed")
                                 }
                             }
                         }
                     }
                 }
-                .setNegativeButton(Utils.getString("biliroaming_select_or_cancel_all"), null)
+                .setNegativeButton(Utils.getString("bili_select_or_cancel_all"), null)
                 .setNeutralButton(android.R.string.cancel, null)
                 .create().constraintSize(-1)
                 .onShow {

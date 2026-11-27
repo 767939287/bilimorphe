@@ -11,13 +11,13 @@ import app.revanced.bilibili.settings.dialog.SpeedTestDialog
 import app.revanced.bilibili.settings.search.annotation.SettingFragment
 import app.revanced.bilibili.utils.*
 
-@SettingFragment("biliroaming_setting_unlock_area_limit")
-class UnlockAreaLimitFragment : BiliRoamingBaseSettingFragment() {
+@SettingFragment("bili_setting_unlock_area_limit")
+class UnlockAreaLimitFragment : BiliBaseSettingFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
         findPreference<Preference>("custom_server")?.onClick {
             AlertDialog.Builder(context).run {
-                val view = context.inflateLayout("biliroaming_dialog_area_server")
+                val view = context.inflateLayout("bili_dialog_area_server")
                 val editTexts = arrayOf<EditText>(
                     view.findView("cn_server"),
                     view.findView("hk_server"),
@@ -25,7 +25,7 @@ class UnlockAreaLimitFragment : BiliRoamingBaseSettingFragment() {
                     view.findView("th_server")
                 )
                 editTexts.forEach { it.setText(prefs.getString(it.tag.toString(), "")) }
-                setTitle(Utils.getString("biliroaming_custom_server_title"))
+                setTitle(Utils.getString("bili_custom_server_title"))
                 setView(view)
                 setPositiveButton(android.R.string.ok) { _, _ ->
                     editTexts.forEach {
@@ -40,8 +40,8 @@ class UnlockAreaLimitFragment : BiliRoamingBaseSettingFragment() {
                         else prefs.edit { remove(it.tag.toString()) }
                     }
                 }
-                setNegativeButton(Utils.getString("biliroaming_get_public_server")) { _, _ ->
-                    val uri = Uri.parse(Utils.getString("biliroaming_server_url"))
+                setNegativeButton(Utils.getString("bili_get_public_server")) { _, _ ->
+                    val uri = Uri.parse(Utils.getString("bili_server_url"))
                     val intent = Intent(Intent.ACTION_VIEW, uri)
                     startActivity(intent)
                 }

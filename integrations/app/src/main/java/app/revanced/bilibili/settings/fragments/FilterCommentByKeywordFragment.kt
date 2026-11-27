@@ -19,9 +19,9 @@ class FilterCommentByKeywordFragment : BaseWidgetSettingFragment() {
     ): View {
         val (root, content, saveButton) = rootViewTemplate()
         val upLevel = Settings.BlockCommentUpLevel()
-        val upLevelTitle = string("biliroaming_block_comment_up_level_title")
-        val upLevelIndicator = string("biliroaming_up_level")
-        val upLevelIndicatorZero = string("biliroaming_disabled")
+        val upLevelTitle = string("bili_block_comment_up_level_title")
+        val upLevelIndicator = string("bili_up_level")
+        val upLevelIndicatorZero = string("bili_disabled")
         val upLevelItem = seekBarItem(
             name = upLevelTitle,
             current = upLevel,
@@ -30,15 +30,15 @@ class FilterCommentByKeywordFragment : BaseWidgetSettingFragment() {
             max = 6
         ).let { content.addView(it.first); it.second }
         val (contentGroup, contentRegexSwitch) = content.addKeywordGroup(
-            string("biliroaming_keyword_group_name_content"), 40.dp, true
+            string("bili_keyword_group_name_content"), 40.dp, true
         )
         contentRegexSwitch.isChecked = Settings.BlockCommentContentRegexMode()
         val (upNameGroup, upNameRegexSwitch) = content.addKeywordGroup(
-            string("biliroaming_keyword_group_name_up"), 40.dp, true
+            string("bili_keyword_group_name_up"), 40.dp, true
         )
         upNameRegexSwitch.isChecked = Settings.BlockCommentUpRegexMode()
         val uidGroup = content.addKeywordGroup(
-            string("biliroaming_keyword_group_name_uid"),
+            string("bili_keyword_group_name_uid"),
             40.dp, inputType = EditorInfo.TYPE_CLASS_NUMBER
         ).first
         Settings.BlockCommentContent().forEach {
@@ -55,13 +55,13 @@ class FilterCommentByKeywordFragment : BaseWidgetSettingFragment() {
             val contents = contentGroup.getKeywords()
             val contentRegexMode = contentRegexSwitch.isChecked
             if (contentRegexMode && contents.runCatching { forEach { it.toRegex() } }.isFailure) {
-                Toasts.showShortWithId("biliroaming_invalid_regex")
+                Toasts.showShortWithId("bili_invalid_regex")
                 return@onClick
             }
             val upNames = upNameGroup.getKeywords()
             val upNameRegexMode = upNameRegexSwitch.isChecked
             if (upNameRegexMode && upNames.runCatching { forEach { it.toRegex() } }.isFailure) {
-                Toasts.showShortWithId("biliroaming_invalid_regex")
+                Toasts.showShortWithId("bili_invalid_regex")
                 return@onClick
             }
 

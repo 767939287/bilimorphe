@@ -25,17 +25,17 @@ class ARGBColorChooseDialog(
     defColor: Int,
     private val onConfirm: (color: Int) -> Unit
 ) : AlertDialog.Builder(context) {
-    private val view = context.inflateLayout("biliroaming_dialog_argb_color_choose")
-    private val sampleView: View = view.findView("biliroaming_view_sample2")
-    private val etColor: EditText = view.findView("biliroaming_et_color2")
-    private val sbColorA: SeekBar = view.findView("biliroaming_sb_colorA2")
-    private val sbColorR: SeekBar = view.findView("biliroaming_sb_colorR2")
-    private val sbColorG: SeekBar = view.findView("biliroaming_sb_colorG2")
-    private val sbColorB: SeekBar = view.findView("biliroaming_sb_colorB2")
-    private val tvColorA: TextView = view.findView("biliroaming_tv_colorA2")
-    private val tvColorR: TextView = view.findView("biliroaming_tv_colorR2")
-    private val tvColorG: TextView = view.findView("biliroaming_tv_colorG2")
-    private val tvColorB: TextView = view.findView("biliroaming_tv_colorB2")
+    private val view = context.inflateLayout("bili_dialog_argb_color_choose")
+    private val sampleView: View = view.findView("bili_view_sample2")
+    private val etColor: EditText = view.findView("bili_et_color2")
+    private val sbColorA: SeekBar = view.findView("bili_sb_colorA2")
+    private val sbColorR: SeekBar = view.findView("bili_sb_colorR2")
+    private val sbColorG: SeekBar = view.findView("bili_sb_colorG2")
+    private val sbColorB: SeekBar = view.findView("bili_sb_colorB2")
+    private val tvColorA: TextView = view.findView("bili_tv_colorA2")
+    private val tvColorR: TextView = view.findView("bili_tv_colorR2")
+    private val tvColorG: TextView = view.findView("bili_tv_colorG2")
+    private val tvColorB: TextView = view.findView("bili_tv_colorB2")
 
     val color: Int
         get() = Color.argb(
@@ -98,7 +98,7 @@ class ARGBColorChooseDialog(
         setSeekBarListener()
         updateValue(defColor)
         etColor.setText(defColor.toHexColor())
-        setTitle(Utils.getString("biliroaming_dialog_color_picker_title"))
+        setTitle(Utils.getString("bili_dialog_color_picker_title"))
         setPositiveButton(android.R.string.ok) { _, _ -> onConfirm(color) }
         setNegativeButton(android.R.string.cancel, null)
     }

@@ -8,13 +8,13 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
-import app.revanced.bilibili.settings.fragments.BiliRoamingBaseSettingFragment
+import app.revanced.bilibili.settings.fragments.BiliBaseSettingFragment
 import app.revanced.bilibili.utils.*
 import app.revanced.bilibili.widget.SearchBar
 import com.bilibili.lib.ui.garb.Garb
 
 @Suppress("DEPRECATION", "UNUSED", "UNUSED_PARAMETER")
-class SearchResultFragment : BiliRoamingBaseSettingFragment("biliroaming_search_result"),
+class SearchResultFragment : BiliBaseSettingFragment("bili_search_result"),
     FragmentManager.OnBackStackChangedListener {
     override val showSearchBarForHd: Boolean
         get() = true
@@ -29,7 +29,7 @@ class SearchResultFragment : BiliRoamingBaseSettingFragment("biliroaming_search_
         val backStackEntryCount = parentFragmentManager.backStackEntryCount
         if (backStackEntryCount > 0 && parentFragmentManager.getBackStackEntryAt(
                 backStackEntryCount - 1
-            ).breadCrumbTitle != Utils.getString("biliroaming_search")
+            ).breadCrumbTitle != Utils.getString("bili_search")
         ) {
             searchBar.hideKeyboard()
             val toolbar = hostActivity.findView<Toolbar>("nav_top_bar")
@@ -116,8 +116,8 @@ class SearchResultFragment : BiliRoamingBaseSettingFragment("biliroaming_search_
         // hold activity instance temporarily before popBackStack
         val hostActivity = hostActivity
         val enterAnimResId = enterAnimResId
-        // keep BiliRoamingSettingsFragment
-        val moduleName = Utils.getString("biliroaming_settings_title")
+        // keep BiliSettingsFragment
+        val moduleName = Utils.getString("bili_settings_title")
         if (Utils.isHd()) {
             hdToolbar.hideKeyboard()
             val contentId = (requireView().parent as View).id

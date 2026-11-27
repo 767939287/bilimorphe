@@ -30,7 +30,7 @@ object BackupHelper {
     private val externalDir: File
         get() = Utils.getContext().getExternalFilesDir(null)?.parentFile!!
     private val tempFile: File
-        get() = File(Utils.getContext().getExternalFilesDir(null), "biliroaming_backup.tmp")
+        get() = File(Utils.getContext().getExternalFilesDir(null), "bili_backup.tmp")
 
     private val Any?.typeDescriptor: String
         get() = when (this) {

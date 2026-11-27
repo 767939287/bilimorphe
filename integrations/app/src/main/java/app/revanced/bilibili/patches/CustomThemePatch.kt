@@ -155,7 +155,7 @@ object CustomThemePatch {
         if (Settings.Skin()) {
             Settings.Skin.save(false)
             Themes.unloadLoadEquip()
-            Toasts.showShortWithId("biliroaming_theme_closed")
+            Toasts.showShortWithId("bili_theme_closed")
         }
     }
 

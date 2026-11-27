@@ -188,12 +188,12 @@ object HttpClient {
     )
 
     @JvmStatic
-    fun biliroaming(url: String): ResponseBody? {
+    fun bili(url: String): ResponseBody? {
         val verName = "1.7.0"
         val verCode = "1344"
         val headers = mapOf(
-            "x-from-biliroaming" to verName,
-            "platform-from-biliroaming" to Utils.getMobiApp(),
+            "x-from-bili" to verName,
+            "platform-from-bili" to Utils.getMobiApp(),
             "Build" to verCode,
         )
         return request(url, method = Method.Get, headers = headers)

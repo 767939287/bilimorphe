@@ -1,7 +1,7 @@
 package app.revanced.bilibili.patches.protobuf.hooks
 
 import android.net.Uri
-import app.revanced.bilibili.api.BiliRoamingApi.getThailandSubtitles
+import app.revanced.bilibili.api.BiliApi.getThailandSubtitles
 import app.revanced.bilibili.patches.okhttp.BangumiSeasonHook.bangumiInfoCache
 import app.revanced.bilibili.patches.okhttp.hooks.Subtitle
 import app.revanced.bilibili.patches.protobuf.MossHook

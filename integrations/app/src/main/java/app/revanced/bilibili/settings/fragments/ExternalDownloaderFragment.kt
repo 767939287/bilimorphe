@@ -13,8 +13,8 @@ import app.revanced.bilibili.utils.onClick
 import app.revanced.bilibili.utils.onShow
 import app.revanced.bilibili.utils.showKeyboard
 
-@SettingFragment("biliroaming_setting_external_downloader")
-class ExternalDownloaderFragment : BiliRoamingBaseSettingFragment() {
+@SettingFragment("bili_setting_external_downloader")
+class ExternalDownloaderFragment : BiliBaseSettingFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
         findPreference<Preference>("package_name")?.onClick {

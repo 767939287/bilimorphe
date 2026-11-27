@@ -265,7 +265,7 @@ fun checkErrorToast(json: JSONObject, isCustomServer: Boolean = false) {
 }
 
 val cachePrefs: SharedPreferences by lazy {
-    Utils.blkvPrefsByName("biliroaming_cache", true)
+    Utils.blkvPrefsByName("bili_cache", true)
 }
 
 val abPrefs by lazy {
@@ -652,11 +652,11 @@ fun saveImage(url: String) {
             MediaScannerConnection.scanFile(
                 Utils.getContext(), arrayOf(imageFile.absolutePath), null, null
             )
-            Toasts.showLongWithId("biliroaming_toast_image_save_success", imageFile.path)
+            Toasts.showLongWithId("bili_toast_image_save_success", imageFile.path)
         }
     }.onFailure {
         Logger.error(it) { "image save failed, url: $url" }
-        Toasts.showShortWithId("biliroaming_toast_image_save_failed")
+        Toasts.showShortWithId("bili_toast_image_save_failed")
     }
     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q) {
         Utils.async { save(url) }
@@ -666,7 +666,7 @@ fun saveImage(url: String) {
             if (granted) {
                 Utils.async { save(url) }
             } else if (shouldExplain) {
-                Toasts.showShortWithId("biliroaming_write_storage_failed")
+                Toasts.showShortWithId("bili_write_storage_failed")
             }
         }
     }

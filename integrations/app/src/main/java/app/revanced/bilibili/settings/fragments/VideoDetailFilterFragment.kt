@@ -6,8 +6,8 @@ import app.revanced.bilibili.settings.Settings
 import app.revanced.bilibili.settings.search.annotation.SettingFragment
 import app.revanced.bilibili.utils.Utils
 
-@SettingFragment("biliroaming_setting_video_detail_filter")
-class VideoDetailFilterFragment : BiliRoamingBaseSettingFragment() {
+@SettingFragment("bili_setting_video_detail_filter")
+class VideoDetailFilterFragment : BiliBaseSettingFragment() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         super.onCreatePreferences(savedInstanceState, rootKey)
         findPreference<Preference>("relate_keyword_filter")

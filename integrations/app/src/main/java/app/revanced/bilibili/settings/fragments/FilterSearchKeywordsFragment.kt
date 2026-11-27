@@ -18,15 +18,15 @@ class FilterSearchKeywordsFragment : BaseWidgetSettingFragment() {
     ): View {
         val (root, content, saveButton) = rootViewTemplate()
         val (contentGroup, contentRegexSwitch) = content.addKeywordGroup(
-            string("biliroaming_keyword_group_name_content"), 40.dp, true
+            string("bili_keyword_group_name_content"), 40.dp, true
         )
         contentRegexSwitch.isChecked = Settings.FilterSearchContentRegexMode()
         val (upNameGroup, upNameRegexSwitch) = content.addKeywordGroup(
-            string("biliroaming_keyword_group_name_up"), 40.dp, true
+            string("bili_keyword_group_name_up"), 40.dp, true
         )
         upNameRegexSwitch.isChecked = Settings.FilterSearchUpRegexMode()
         val uidGroup = content.addKeywordGroup(
-            string("biliroaming_keyword_group_name_uid"),
+            string("bili_keyword_group_name_uid"),
             40.dp, inputType = EditorInfo.TYPE_CLASS_NUMBER
         ).first
         Settings.FilterSearchContent().forEach {
@@ -43,13 +43,13 @@ class FilterSearchKeywordsFragment : BaseWidgetSettingFragment() {
             val contents = contentGroup.getKeywords()
             val contentRegexMode = contentRegexSwitch.isChecked
             if (contentRegexMode && contents.runCatching { forEach { it.toRegex() } }.isFailure) {
-                Toasts.showShortWithId("biliroaming_invalid_regex")
+                Toasts.showShortWithId("bili_invalid_regex")
                 return@onClick
             }
             val upNames = upNameGroup.getKeywords()
             val upNameRegexMode = upNameRegexSwitch.isChecked
             if (upNameRegexMode && upNames.runCatching { forEach { it.toRegex() } }.isFailure) {
-                Toasts.showShortWithId("biliroaming_invalid_regex")
+                Toasts.showShortWithId("bili_invalid_regex")
                 return@onClick
             }
 

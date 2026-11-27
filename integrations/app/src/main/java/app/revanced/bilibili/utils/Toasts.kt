@@ -52,7 +52,7 @@ object Toasts {
 
     @JvmStatic
     fun show(message: String, duration: Int, @GravityInt gravity: Int) {
-        val prefixMessage = Utils.getString("biliroaming_toast_prefix")
+        val prefixMessage = Utils.getString("bili_toast_prefix")
         val finalMessage = prefixMessage + message
         Utils.runOnMainThread {
             show(Utils.getContext(), finalMessage, duration, gravity)

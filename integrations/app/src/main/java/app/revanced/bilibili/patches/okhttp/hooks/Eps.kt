@@ -1,7 +1,7 @@
 package app.revanced.bilibili.patches.okhttp.hooks
 
 import android.net.Uri
-import app.revanced.bilibili.api.BiliRoamingApi.getSeason
+import app.revanced.bilibili.api.BiliApi.getSeason
 import app.revanced.bilibili.patches.okhttp.ApiHook
 import app.revanced.bilibili.patches.okhttp.BangumiSeasonHook.FAIL_CODE
 import app.revanced.bilibili.patches.okhttp.BangumiSeasonHook.isBangumiWithWatchPermission

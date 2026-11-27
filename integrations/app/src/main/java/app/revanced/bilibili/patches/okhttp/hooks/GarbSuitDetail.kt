@@ -34,7 +34,7 @@ object GarbSuitDetail : ApiHook() {
             val topActivity = ApplicationDelegate.getTopActivity()
             if (topActivity != null) {
                 AlertDialog.Builder(topActivity)
-                    .setMessage(Utils.getString("biliroaming_found_theme"))
+                    .setMessage(Utils.getString("bili_found_theme"))
                     .setNegativeButton(android.R.string.cancel, null)
                     .setPositiveButton(android.R.string.ok) { _, _ ->
                         Utils.async {
@@ -44,7 +44,7 @@ object GarbSuitDetail : ApiHook() {
                                 )
                             }.onFailure {
                                 Logger.error(it) { "theme apply failed" }
-                                Toasts.showShortWithId("biliroaming_theme_apply_failed")
+                                Toasts.showShortWithId("bili_theme_apply_failed")
                             }.onSuccess {
                                 Settings.SkinJson.save(it.toString())
                             }

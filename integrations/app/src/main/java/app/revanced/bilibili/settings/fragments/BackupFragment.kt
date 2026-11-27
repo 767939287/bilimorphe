@@ -13,8 +13,8 @@ import app.revanced.bilibili.settings.search.annotation.SettingFragment
 import app.revanced.bilibili.utils.*
 import java.util.Date
 
-@SettingFragment("biliroaming_setting_backup")
-class BackupFragment : BiliRoamingBaseSettingFragment() {
+@SettingFragment("bili_setting_backup")
+class BackupFragment : BiliBaseSettingFragment() {
     companion object {
         private const val REQ_CODE_BACKUP = 0x158
         private const val REQ_CODE_RESTORE = 0x159
@@ -32,16 +32,16 @@ class BackupFragment : BiliRoamingBaseSettingFragment() {
                     "android_b" -> "Blue"
                     else -> "Pink"
                 }
-                val title = "BiliRoamingX_${identifier}_backup_$time.zip"
+                val title = "BiliX_${identifier}_backup_$time.zip"
                 putExtra(Intent.EXTRA_TITLE, title)
                 addCategory(Intent.CATEGORY_OPENABLE)
             }
             try {
-                Toasts.showShortWithId("biliroaming_toast_pls_choose_save_path")
-                val title = Utils.getString("biliroaming_backup_title")
+                Toasts.showShortWithId("bili_toast_pls_choose_save_path")
+                val title = Utils.getString("bili_backup_title")
                 startActivityForResult(Intent.createChooser(intent, title), REQ_CODE_BACKUP)
             } catch (ex: ActivityNotFoundException) {
-                Toasts.showShortWithId("biliroaming_pls_install_file_manager")
+                Toasts.showShortWithId("bili_pls_install_file_manager")
             }
             true
         }
@@ -52,11 +52,11 @@ class BackupFragment : BiliRoamingBaseSettingFragment() {
                 addCategory(Intent.CATEGORY_OPENABLE)
             }
             try {
-                Toasts.showShortWithId("biliroaming_toast_pls_choose_restore_path")
-                val title = Utils.getString("biliroaming_restore_title")
+                Toasts.showShortWithId("bili_toast_pls_choose_restore_path")
+                val title = Utils.getString("bili_restore_title")
                 startActivityForResult(Intent.createChooser(intent, title), REQ_CODE_RESTORE)
             } catch (ex: ActivityNotFoundException) {
-                Toasts.showShortWithId("biliroaming_pls_install_file_manager")
+                Toasts.showShortWithId("bili_pls_install_file_manager")
             }
             true
         }
@@ -75,10 +75,10 @@ class BackupFragment : BiliRoamingBaseSettingFragment() {
                         BackupHelper.backup(output)
                     }
                 }.onSuccess {
-                    Toasts.showShortWithId("biliroaming_toast_backup_success")
+                    Toasts.showShortWithId("bili_toast_backup_success")
                 }.onFailure {
                     Logger.error(it) { "backup failed" }
-                    Toasts.showShortWithId("biliroaming_toast_backup_failed")
+                    Toasts.showShortWithId("bili_toast_backup_failed")
                 }
             }
         } else if (requestCode == REQ_CODE_RESTORE) {
@@ -96,7 +96,7 @@ class BackupFragment : BiliRoamingBaseSettingFragment() {
                     }
                 }.onFailure {
                     Logger.error(it) { "restore failed" }
-                    Toasts.showShortWithId("biliroaming_toast_restore_failed")
+                    Toasts.showShortWithId("bili_toast_restore_failed")
                 }
                 Utils.runOnMainThread {
                     Setting.asyncExecuteOnChangeAction(true)
@@ -107,9 +107,9 @@ class BackupFragment : BiliRoamingBaseSettingFragment() {
     }
 
     private fun showNeedRebootDialog() {
-        val message = Utils.getString("biliroaming_dialog_msg_restore_success")
-        val confirm = Utils.getString("biliroaming_need_reboot_dialog_confirm")
-        val later = Utils.getString("biliroaming_need_reboot_dialog_later")
+        val message = Utils.getString("bili_dialog_msg_restore_success")
+        val confirm = Utils.getString("bili_need_reboot_dialog_confirm")
+        val later = Utils.getString("bili_need_reboot_dialog_later")
         AlertDialog.Builder(context)
             .setMessage(message)
             .setNegativeButton(later, null)

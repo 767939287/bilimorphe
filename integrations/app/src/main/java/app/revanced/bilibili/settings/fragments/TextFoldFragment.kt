@@ -17,17 +17,17 @@ class TextFoldFragment : BaseWidgetSettingFragment() {
         val (root, content, saveButton) = rootViewTemplate()
 
         val commentMaxLines = Settings.TextFoldCommentMaxLines()
-        val commentMaxLinesTitle = string("biliroaming_text_fold_comment_max_lines_title")
+        val commentMaxLinesTitle = string("bili_text_fold_comment_max_lines_title")
         val commentMaxLinesItem = seekBarItem(commentMaxLinesTitle, current = commentMaxLines).let {
             content.addView(it.first); it.second
         }
         val dynMaxLines = Settings.TextFoldDynMaxLines()
-        val dynMaxLinesTitle = string("biliroaming_text_fold_dyn_max_lines_title")
+        val dynMaxLinesTitle = string("bili_text_fold_dyn_max_lines_title")
         val dynMaxLinesItem = seekBarItem(dynMaxLinesTitle, current = dynMaxLines).let {
             content.addView(it.first); it.second
         }
         val dynLinesToAll = Settings.TextFoldDynLinesToAll()
-        val dynLinesToAllTitle = string("biliroaming_text_fold_dyn_lines_to_all_title")
+        val dynLinesToAllTitle = string("bili_text_fold_dyn_lines_to_all_title")
         val dynLinesToAllItem = seekBarItem(dynLinesToAllTitle, current = dynLinesToAll).let {
             content.addView(it.first); it.second
         }
