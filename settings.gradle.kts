@@ -1,20 +1,25 @@
-rootProject.name = "revanced-patches-template"
-
 pluginManagement {
     repositories {
-        gradlePluginPortal()
-        google()
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/revanced/registry")
-            credentials {
-                username = providers.gradleProperty("gpr.user").orNull ?: System.getenv("GITHUB_ACTOR")
-                password = providers.gradleProperty("gpr.key").orNull ?: System.getenv("GITHUB_TOKEN")
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
             }
         }
+        mavenCentral()
+        gradlePluginPortal()
     }
 }
 
-plugins {
-    id("app.revanced.patches") version "1.0.0-dev.5"
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven(url = "https://api.xposed.info")
+    }
 }
+
+rootProject.name = "bilimorphe"
+include(":app")
