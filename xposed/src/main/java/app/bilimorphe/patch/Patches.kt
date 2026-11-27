@@ -1,16 +1,18 @@
 package app.bilimorphe.patch
 
 /**
- * Patch registry. Maps host packages to the patches that should run inside them.
+ * Patch registry. The order matters: the bridge patch must run first so the
+ * integrations runtime is ready before network hooks are installed.
  */
 object Patches {
-    const val BILI_PACKAGE = "tv.danmaku.bili"
+    const val TARGET_PACKAGE = "tv.danmaku.bili"
 
-    private val registry: Map<String, List<Patch>> = mapOf(
-        BILI_PACKAGE to listOf(
-            StartupProbePatch,
-        ),
+    private val patches: List<Patch> = listOf(
+        StartupProbePatch,
+        BridgePatch,
+        OkHttpHookPatch,
     )
 
-    fun forPackage(packageName: String): List<Patch>? = registry[packageName]
+    fun forPackage(packageName: String): List<Patch>? =
+        if (packageName == TARGET_PACKAGE) patches else null
 }

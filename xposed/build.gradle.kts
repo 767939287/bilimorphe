@@ -52,3 +52,7 @@ dependencies {
     compileOnly(libs.xposed.api)
     compileOnly(libs.libxposed.api)
 }
+
+dependencies {
+    compileOnly("com.squareup.okhttp3:okhttp:3.14.9")
+}
