@@ -1,0 +1,89 @@
+category	name	file
+OkHttp 层（已转发）	BL route intercept	BLRoutePatch.kt
+OkHttp 层（已转发）	Blkv	BLKVPatch.kt
+OkHttp 层（已转发）	Block thai comment	BlockThaiCommentPatch.kt
+OkHttp 层（已转发）	Brotli	BrotliPatch.kt
+OkHttp 层（已转发）	Cache redirect	CacheRedirectPatch.kt
+OkHttp 层（已转发）	Channel model fix	ChannelModelFixPatch.kt
+OkHttp 层（已转发）	Comment word search url	CommentReplyUrlPatch.kt
+OkHttp 层（已转发）	Moss	MossPatch.kt
+OkHttp 层（已转发）	Override certificate pinning	OverrideCertificatePinningPatch.kt
+OkHttp 层（已转发）	Pegasus hook	PegasusPatch.kt
+OkHttp 层（已转发）	Search type	AppendExtraSearchTypePatch.kt
+OkHttp 层（已转发）	Share	SharePatch.kt
+OkHttp 层（已转发）	Unlock ProtoBuf	UnlockProtobufPatch.kt
+基础设施（已有替代）	BLog	BLogPatch.kt
+基础设施（已有替代）	Config	ConfigPatch.kt
+基础设施（已有替代）	Config integration	ConfigPatch.kt
+基础设施（已有替代）	Crash handler	CrashHandlerPatch.kt
+基础设施（已有替代）	Integrations	IntegrationsPatch.kt
+基础设施（已有替代）	Json	JSONPatch.kt
+基础设施（已有替代）	Main activity patch	MainActivityPatch.kt
+基础设施（已有替代）	Modify modifier	ModifyModifierPatch.kt
+基础设施（已有替代）	OkHttp	OkHttpPatch.kt
+基础设施（已有替代）	ProtoBuf print	ProtoBufPrintPatch.kt
+基础设施（已有替代）	Toast	ToastPatch.kt
+待移植（运行时 hook）	Add back danmaku system font	AddBackDmSystemFontPatch.kt
+待移植（运行时 hook）	Auto like	AutoLikePatch.kt
+待移植（运行时 hook）	Bili adjust layout (codes)	BiliLayoutAdjustPatch.kt
+待移植（运行时 hook）	Block up recommend ads	UpRcmdAdsPatch.kt
+待移植（运行时 hook）	Copy enhance	CopyEnhancePatch.kt
+待移植（运行时 hook）	Custom splash	CustomSplashPatch.kt
+待移植（运行时 hook）	Custom theme color	CustomThemePatch.kt
+待移植（运行时 hook）	Dark switch	DarkSwitchPatch.kt
+待移植（运行时 hook）	Default playback speed	DefaultPlaybackSpeedPatch.kt
+待移植（运行时 hook）	Disable auto select	PublishToFollowingPatch.kt
+待移植（运行时 hook）	Disable live room double click	LiveRoomPatch.kt
+待移植（运行时 hook）	Dpi	DpiPatch.kt
+待移植（运行时 hook）	Drawer	DrawerPatch.kt
+待移植（运行时 hook）	Enable Key mapping	BangumiKeyDownHandlerPatch.kt
+待移植（运行时 hook）	Fake not in multi window mode	FakeNotInMultiWindowPatch.kt
+待移植（运行时 hook）	Forbid auto subscribe	FavFolderDialogPatch.kt
+待移植（运行时 hook）	Forbid live room auto float	ForbidLiveRoomAutoFloatPatch.kt
+待移植（运行时 hook）	Forbid live room slide left	ForbidLiveRoomSlideLeftPatch.kt
+待移植（运行时 hook）	Forbid switch live room	ForbidSwitchLiveRoomPatch.kt
+待移植（运行时 hook）	Force comment time navigable	ForceCommentNavigablePatch.kt
+待移植（运行时 hook）	Force hardware codec	HwCodecPatch.kt
+待移植（运行时 hook）	Hide follow button	HideFollowButtonPatch.kt
+待移植（运行时 hook）	Long press playback speed	LongPressPlaybackSpeedPatch.kt
+待移植（运行时 hook）	Make text selectable	MakeTextSelectablePatch.kt
+待移植（运行时 hook）	Music notification	MusicNotificationPatch.kt
+待移植（运行时 hook）	Notification icon	NotificationPatch.kt
+待移植（运行时 hook）	Number format	NumberFormatPatch.kt
+待移植（运行时 hook）	Override playback speed	OverridePlaybackSpeedPatch.kt
+待移植（运行时 hook）	Per app language	PerAppLanguagePatch.kt
+待移植（运行时 hook）	Play url	PlayUrlPatch.kt
+待移植（运行时 hook）	Player core	PlayerPatch.kt
+待移植（运行时 hook）	Player gesture detector hook	PlayerGestureDetectorPatch.kt
+待移植（运行时 hook）	Player toast	PlayerToastPatch.kt
+待移植（运行时 hook）	Remember playback speed	RememberPlaybackSpeedPatch.kt
+待移植（运行时 hook）	Remove vip section	RemoveVipSectionPatch.kt
+待移植（运行时 hook）	Save comment images	SaveCommentImagePatch.kt
+待移植（运行时 hook）	Splash	SplashPatch.kt
+待移植（运行时 hook）	Subtitle import and save	SubtitleImportSavePatch.kt
+待移植（运行时 hook）	Subtitle style	SubtitlePatch.kt
+待移植（运行时 hook）	Teenager mode	TeenagerModePatch.kt
+待移植（运行时 hook）	Text fold	TextFoldPatch.kt
+待移植（运行时 hook）	Trial quality	TrialQualityPatch.kt
+待移植（运行时 hook）	Uid copy no prefix	UidCopyNoPrefixPatch.kt
+待移植（运行时 hook）	Upgrade	UpgradePatch.kt
+待移植（运行时 hook）	Video default quality	VideoQualityPatch.kt
+待移植（运行时 hook）	Webview	WebViewPatch.kt
+待移植（运行时 hook）	tv.danmaku.bili	SubtitleImportSaveButtonPatch.kt
+构建期（运行时不可）	Anti RecyclerView obfuscation	NormalizeRecyclerViewPatch.kt
+构建期（运行时不可）	App icon	AppIconPatch.kt
+构建期（运行时不可）	Append signature info for LSPatch	AppendSignatureInfoPatch.kt
+构建期（运行时不可）	Bili adjust layout (resources)	BiliLayoutAdjustResourcesPatch.kt
+构建期（运行时不可）	Bili library patch	BiliLibraryPatch.kt
+构建期（运行时不可）	BiliRoamingX settings entrance	SettingsResourcePatch.kt
+构建期（运行时不可）	Fix app setting preference layout	BiliSettingPreferenceLayoutPatch.kt
+构建期（运行时不可）	Fix preference click	HdPreferenceClickFixPatch.kt
+构建期（运行时不可）	Fix preference manager	FixPreferenceManagerPatch.kt
+构建期（运行时不可）	Hd preference fragment	HdPreferenceFragmentPatch.kt
+构建期（运行时不可）	Inject DocumentsProvider	InjectDataProviderPatch.kt
+构建期（运行时不可）	Inject more scheme	InjectMoreSchemePatch.kt
+构建期（运行时不可）	Keep data when uninstall	KeepDataWhenUninstallPatch.kt
+构建期（运行时不可）	Lib bili	LibBiliPatch.kt
+构建期（运行时不可）	MultiMethodBytecodePatch	MultiMethodBytecodePatch.kt
+构建期（运行时不可）	Play manifest compatibility	PlayManifestCompatibilityPatch.kt
+构建期（运行时不可）	Remove managerSpaceActivity	NoManageSpaceActivityPatch.kt

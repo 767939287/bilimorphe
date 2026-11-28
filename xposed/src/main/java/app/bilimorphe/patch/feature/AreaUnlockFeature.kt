@@ -3,6 +3,7 @@ package app.bilimorphe.patch.feature
 import android.app.Application
 import app.bilimorphe.PatchEngine
 import app.bilimorphe.patch.Patch
+import app.bilimorphe.patch.ProcessScope
 import app.bilimorphe.settings.ModulePrefs
 import app.bilimorphe.settings.SettingsKeys
 import app.bilimorphe.util.Logger
@@ -33,6 +34,7 @@ import java.lang.reflect.Field
 object AreaUnlockFeature : Patch(
     name = "Area unlock settings",
     description = "Copies module unlock settings into the integrations settings store.",
+    scope = ProcessScope.MAIN_ONLY,
 ) {
 
     private const val INTEGRATIONS_SETTINGS = "app.revanced.bilibili.settings.Settings"

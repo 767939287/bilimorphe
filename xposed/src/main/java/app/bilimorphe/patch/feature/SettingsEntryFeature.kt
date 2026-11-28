@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import app.bilimorphe.PatchEngine
 import app.bilimorphe.patch.Patch
+import app.bilimorphe.patch.ProcessScope
 import app.bilimorphe.util.Logger
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedBridge
@@ -24,6 +25,7 @@ import java.lang.reflect.Proxy
 object SettingsEntryFeature : Patch(
     name = "Settings entry",
     description = "Injects a module settings entry into the host preference screen.",
+    scope = ProcessScope.MAIN_ONLY,
 ) {
 
     private const val HOST_PREFS_ACTIVITY = "com.bilibili.app.preferences.BiliPreferencesActivity"

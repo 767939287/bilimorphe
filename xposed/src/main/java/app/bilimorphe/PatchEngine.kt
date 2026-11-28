@@ -17,6 +17,20 @@ class PatchEngine(
     /** Fully qualified class name of the host Application. */
     val hostClassName: String get() = param.applicationInfo.className
 
+    /** 当前进程名（B 站大量使用 `:xxx` 子进程）。 */
+    val processName: String by lazy {
+        runCatching {
+            if (android.os.Build.VERSION.SDK_INT >= 28) {
+                android.app.Application.getProcessName()
+            } else {
+                java.io.File("/proc/self/cmdline").readText().trim('\u0000').trim()
+            }
+        }.getOrDefault(packageName)
+    }
+
+    /** 是否为主进程（进程名 == 包名）。 */
+    val isMainProcess: Boolean get() = processName == packageName
+
     /** APK path of the host application, used as DexKit input. */
     val hostApkPath: String get() = param.applicationInfo.sourceDir
 

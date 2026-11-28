@@ -29,8 +29,8 @@
 ### 待办（14 项）
 | # | 项目 | 要点 |
 |---|---|---|
-| 8 | **实机冒烟验证**（硬门槛） | 装 APK → LSPosed 授权 → 看日志 `network entry point:` |
-| 9 | 最小设置入口 | 反射枚举 Settings 生成开关 + 7 个文本输入（`tw/hk/cn/th_server`、`upos_host`、`access_key_main`、`access_key_th`）+ RemotePreferences 跨进程 |
+| 8 | **hook 点验证 + 实机冒烟**（硬门槛） | ① 103 指纹逐一对照 9.20.0（`docs/fingerprint-verify.md`）② 装 APK → LSPosed 授权 → 看日志 `network entry point:` |
+| 9 | 最小设置入口（见 ADR-005） | 设置寄生 B 站进程：容器 `BiliPreferencesActivity` + `extra:key:fragment`；Fragment 基类 `com.bilibili.lib.ui.BasePreferenceFragment`；入口照 1.28.6（长按 + 首次 AlertDialog）；RemotePreferences 供模块进程读；`/sdcard/bilimorphe.json` 文件通道兜底 |
 | 10 | 架构修正 | 删 `BridgePatch.enableTemporaryDefaults()`；`MainHook` 的多进程处理（B 站有 158 处 `android:process`，当前 `isFirstPackage` 只处理首进程） |
 | 11 | 稳定性地基 | BridgePatch 全 try-catch（防带崩宿主）、日志查看 UI、OkHttp 白名单（防热路径拖慢） |
 | 12 | 重合 A 类 13 项 + 自动领券 + P2P/CDN | 区域解锁、番剧/剧集/media/season、评论 URL、UPOS、分享、泰国评论、Brotli、ProtoBuf、Config、BLKV、BLRoute、频道模型修正、缓存重定向；另加 `CouponAutoReceiver`（自动领 B 币券）、`DisableP2PUpload`、`PreferStableCdn` |
@@ -126,10 +126,25 @@ unzip -o "/root/project/Android-hook-file/Bili-v9.20.0-x1.28.6@bb_show.apk" clas
 - 1.23.3：填 4 个区域服务器地址 + 伪装 Pink 客户端
 - 1.28.6：改成地区代理（HTTP/HTTPS/SOCKS5）
 - 决定：保留现有方式（用户选择）
+- **2026-11-27 用户再次确认维持**：本项目与 IL 基座版均采用 1.23.3 方案；`grpc_proxies`（地区代理）不实现，IL 的 `KmpGrpcWireAdapter` 只作 gRPC 报文拦截层。
 
 ### ADR-003：去广告类功能不重复造轮子
 - FuckBiliAds（DexKit+API102，9.15~9.19 实测）已很完整
 - 两个模块可共存（作用不同 hook 点），文档需注明"勿同时启用同类 hook"
+
+### ADR-005：设置寄生 B 站进程（2026-11-27）
+- 背景：独立模块 APK 有自己的进程，1.23.3 的设置实现假设与 B 站同进程
+- 结论：设置 UI 走 `com.bilibili.app.preferences.BiliPreferencesActivity` + `extra:key:fragment`，Fragment 继承宿主 `com.bilibili.lib.ui.BasePreferenceFragment`（与 1.28.6 同款，9.20.0 已验证类存在）
+- 存储：B 站进程内 SharedPreferences（`CrossProcessPreferences` 广播同步子进程）+ `getRemotePreferences` 供模块进程读
+- 入口：照 1.28.6 —— 长按宿主现有 View 打开（`kofua/OtG` 样式）+ 首次 AlertDialog 提示；**不改造侧栏导航**（`DrawerPatch` 降级为可选）
+- 兜底：`/sdcard/bilimorphe.json`（只读、优先级最高），实机调试与导入导出共用
+- 第三方佐证：FuckBiliAds（0 Activity，纯注入宿主）；ch6vip（ContentProvider 桥，后期可选）
+- 待核查：我们 fork 的 `BiliSettingsFragment` 依赖 `HdBaseToolbar` / `ModulePreferenceManager` / `SearchManager` 等 1.23.3 时期类，需逐个确认 9.20.0 是否存在
+
+### ADR-006：定位结果落盘缓存
+- 1.28 / ReVanced patch 模式在构建期定位，运行时零开销 —— 不可照抄
+- 做法：DexKit 首次定位结果写 `files/dexkit-cache-<versionCode>.json`，B 站 versionCode 变化即失效重扫
+- 初始化异步化（`initAsync` + `awaitReady(timeoutMs)`），不阻塞宿主启动
 
 ---
 
@@ -251,3 +266,12 @@ BiliTamer 的 `ProbeHooks` 用 `BaseDexClassLoader.findClass` 观测宿主真实
   | 偏好底栏 | 底部 tab hook | 底栏定制 |
   | 云控覆盖 | ConfigManager hook（独立） | 无 |
 - **兜底**：某项确实做不出（如资源级 UI），记录到 roadmap 并在设置页标注「未实现」，不阻塞其他项
+
+### ADR-006：功能实现以 1.28.6 行为为准（2026-11-27 用户决定）
+
+- **决定**：重合功能若在 1.28.6 中被改写过，一律按 1.28.6 的行为实现，不回退 1.23.3 旧实现。
+- **1.23.3 的定位**：只作为两类来源 —— ① 1.28.6 完全没有的能力（如领券、字幕导入）；② 区域解锁方案（ADR-002）。
+- **落地方式**：1.28.6 的模块代码就在 `jadx35-classes35/sources/kofua/`（1125 个类），
+  每个设置项的字段与实现类见 `docs/data/feature-map-1.28.6.tsv`；按其行为重写，不抄代码（ADR-001）。
+- **已按此执行的项**：`disable_hot_patch`（清空 `tribe/` 热更新目录）、`block_back`（三个页面的 `onBackPressed` 直接 return）、
+  `remove_video_screenshot_watermark`（截图合成时水印 drawable 置 null）。
