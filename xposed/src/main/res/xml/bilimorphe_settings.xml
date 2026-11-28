@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  设置页（照 1.28.6 的 androidx.preference XML 组织方式，键名与 1.28.6 保持一致）。
+  共 38 项 = 41 新增键 − grpc_proxies（ADR-002 不做）− 泰区 2 项（不做）。
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="category_ai_video_filter"
+        android:title="@string/bilimorphe_group_ai">
+
+        <PreferenceCategory
+            android:key="category_ai_subtitle_translation"
+            android:title="@string/bilimorphe_category_ai_subtitle_translation_title">
+            <Preference
+                android:key="ai_subtitle_translation_prompt"
+                android:title="@string/bilimorphe_ai_subtitle_translation_prompt_title" />
+        </PreferenceCategory>
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="ai_video_filter_enabled"
+            android:summary="@string/bilimorphe_ai_video_filter_enabled_summary"
+            android:title="@string/bilimorphe_ai_video_filter_enabled_title" />
+
+        <Preference
+            android:dependency="ai_video_filter_enabled"
+            android:key="ai_video_filter_prompt"
+            android:title="@string/bilimorphe_ai_video_filter_prompt_title" />
+
+        <Preference
+            android:key="ai_config"
+            android:summary="@string/bilimorphe_ai_config_summary"
+            android:title="@string/bilimorphe_ai_config_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_mini"
+        android:title="@string/bilimorphe_group_mini">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="always_mini_play"
+            android:title="@string/bilimorphe_always_mini_play_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="mini_danmaku"
+            android:title="@string/bilimorphe_mini_danmaku_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="mini_follow_full"
+            android:title="@string/bilimorphe_mini_follow_full_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="mini_subtitle"
+            android:title="@string/bilimorphe_mini_subtitle_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="not_suicide"
+            android:summary="@string/bilimorphe_not_suicide_summary"
+            android:title="@string/bilimorphe_not_suicide_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_player"
+        android:title="@string/bilimorphe_group_player">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="prefer_lossless"
+            android:summary="@string/bilimorphe_prefer_lossless_summary"
+            android:title="@string/bilimorphe_prefer_lossless_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="release_audio_focus"
+            android:summary="@string/bilimorphe_release_audio_focus_summary"
+            android:title="@string/bilimorphe_release_audio_focus_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="clear_audio"
+            android:title="@string/bilimorphe_clear_audio_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_purify"
+        android:title="@string/bilimorphe_group_purify">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="block_play_pause_ad"
+            android:title="@string/bilimorphe_block_play_pause_ad_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="hide_live_banner"
+            android:title="@string/bilimorphe_hide_live_banner_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="block_comment_op_search"
+            android:title="@string/bilimorphe_block_comment_op_search_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="block_comment_rating"
+            android:title="@string/bilimorphe_block_comment_rating_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_ui"
+        android:title="@string/bilimorphe_group_ui">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="block_activity_label"
+            android:summary="@string/bilimorphe_block_activity_label_summary"
+            android:title="@string/bilimorphe_block_activity_label_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="block_back"
+            android:summary="@string/bilimorphe_block_back_summary"
+            android:title="@string/bilimorphe_block_back_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="direct_owner_space"
+            android:title="@string/bilimorphe_direct_owner_space_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="disable_coloros_transitions"
+            android:title="@string/bilimorphe_disable_coloros_transitions_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="disable_comm_skin"
+            android:title="@string/bilimorphe_disable_comm_skin_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="disable_hot_patch"
+            android:summary="@string/bilimorphe_disable_hot_patch_summary"
+            android:title="@string/bilimorphe_disable_hot_patch_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="force_tablet_mode"
+            android:title="@string/bilimorphe_force_tablet_mode_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="pic_no_fold"
+            android:summary="@string/bilimorphe_pic_no_fold_summary"
+            android:title="@string/bilimorphe_pic_no_fold_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="remove_video_screenshot_watermark"
+            android:title="@string/bilimorphe_remove_video_screenshot_watermark_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="show_sex"
+            android:title="@string/bilimorphe_show_sex_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="prefer_bottom_tab"
+            android:title="@string/bilimorphe_prefer_bottom_tab_title" />
+
+        <Preference
+            android:key="category_danmaku"
+            android:title="@string/bilimorphe_category_danmaku_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_legacy"
+        android:title="@string/bilimorphe_group_legacy">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="force_old_comments"
+            android:title="@string/bilimorphe_force_old_comments_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="force_old_favorite"
+            android:title="@string/bilimorphe_force_old_favorite_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="category_misc"
+        android:title="@string/bilimorphe_group_misc">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="skip_reward_ad"
+            android:summary="@string/bilimorphe_skip_reward_ad_summary"
+            android:title="@string/bilimorphe_skip_reward_ad_title" />
+
+        <Preference
+            android:key="sb_category"
+            android:summary="@string/bilimorphe_sb_category_summary"
+            android:title="@string/bilimorphe_sb_category_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="live_no_block"
+            android:title="@string/bilimorphe_live_no_block_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="hidden_features_group"
+            android:title="@string/bilimorphe_hidden_features_group_title" />
+
+        <Preference
+            android:key="report"
+            android:title="@string/bilimorphe_report_title" />
+
+        <Preference
+            android:key="support"
+            android:title="@string/bilimorphe_support_title" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -279,6 +279,71 @@ object Settings {
     // endregion
 
 
+    // region Group: 1.28.6 独有 - AI
+    @JvmField val AiVideoFilterEnabled = BooleanSetting(key = "ai_video_filter_enabled")
+    @JvmField val AiSubtitleTranslationPrompt = StringSetting(key = "ai_subtitle_translation_prompt")
+    @JvmField val AiVideoFilterPrompt = StringSetting(key = "ai_video_filter_prompt")
+    @JvmField val AiConfig = StringSetting(key = "ai_config")
+    // endregion
+
+
+    // region Group: 1.28.6 独有 - SponsorBlock
+    @JvmField val SbCategory = StringSetting(key = "sb_category")
+    @JvmField val SkipRewardAd = BooleanSetting(key = "skip_reward_ad")
+    // endregion
+
+
+    // region Group: 1.28.6 独有 - 小窗
+    @JvmField val AlwaysMiniPlay = BooleanSetting(key = "always_mini_play")
+    @JvmField val MiniDanmaku = BooleanSetting(key = "mini_danmaku")
+    @JvmField val MiniFollowFull = BooleanSetting(key = "mini_follow_full")
+    @JvmField val MiniSubtitle = BooleanSetting(key = "mini_subtitle")
+    @JvmField val NotSuicide = BooleanSetting(key = "not_suicide")
+    // endregion
+
+
+    // region Group: 1.28.6 独有 - 播放
+    @JvmField val PreferLossless = BooleanSetting(key = "prefer_lossless")
+    @JvmField val ReleaseAudioFocus = BooleanSetting(key = "release_audio_focus")
+    @JvmField val ClearAudio = BooleanSetting(key = "clear_audio")
+    // endregion
+
+
+    // region Group: 1.28.6 独有 - 净化
+    @JvmField val BlockPlayPauseAd = BooleanSetting(key = "block_play_pause_ad")
+    @JvmField val HideLiveBanner = BooleanSetting(key = "hide_live_banner")
+    @JvmField val BlockCommentOpSearch = BooleanSetting(key = "block_comment_op_search")
+    @JvmField val BlockCommentRating = BooleanSetting(key = "block_comment_rating")
+    // endregion
+
+
+    // region Group: 1.28.6 独有 - 界面
+    @JvmField val BlockActivityLabel = BooleanSetting(key = "block_activity_label")
+    @JvmField val BlockBack = BooleanSetting(key = "block_back")
+    @JvmField val DirectOwnerSpace = BooleanSetting(key = "direct_owner_space")
+    @JvmField val DisableColorOsTransitions = BooleanSetting(key = "disable_coloros_transitions")
+    @JvmField val DisableCommSkin = BooleanSetting(key = "disable_comm_skin")
+    @JvmField val DisableHotPatch = BooleanSetting(key = "disable_hot_patch", needReboot = true)
+    @JvmField val ForceTabletMode = BooleanSetting(key = "force_tablet_mode", needReboot = true)
+    @JvmField val PicNoFold = BooleanSetting(key = "pic_no_fold")
+    @JvmField val RemoveVideoScreenshotWatermark =
+        BooleanSetting(key = "remove_video_screenshot_watermark")
+    @JvmField val ShowSex = BooleanSetting(key = "show_sex")
+    @JvmField val PreferBottomTab = StringSetting(key = "prefer_bottom_tab", defValue = "0", needReboot = true)
+    // endregion
+
+
+    // region Group: 1.28.6 独有 - 旧版回退
+    @JvmField val ForceOldComments = BooleanSetting(key = "force_old_comments", needReboot = true)
+    @JvmField val ForceOldFavorite = BooleanSetting(key = "force_old_favorite", needReboot = true)
+    // endregion
+
+
+    // region Group: 1.28.6 独有 - 杂项
+    @JvmField val LiveNoBlock = BooleanSetting(key = "live_no_block")
+    // endregion
+
+
     // region Group: 非配置项
     @JvmField val LosslessEnabled = BooleanSetting(key = "lossless_enabled")
     @JvmField val BgPlayingEnabled = BooleanSetting(key = "bg_playing_enabled")

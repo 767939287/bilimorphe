@@ -1,34 +1,24 @@
 package app.bilimorphe
 
-import android.app.Activity
 import android.os.Bundle
-import android.widget.ScrollView
-import android.widget.TextView
-import app.bilimorphe.patch.Patches
+import androidx.appcompat.app.AppCompatActivity
+import app.bilimorphe.settings.SettingsFragment
 
 /**
- * Minimal settings screen so the module shows up in the LSPosed manager.
+ * 模块设置入口（LSPosed 管理器里点「模块设置」进入）。
+ *
+ * 内容照 1.28.6 的 XML 风格：单个 PreferenceScreen + 分组，见
+ * `res/xml/bilimorphe_settings.xml`。
  */
-class SettingsActivity : Activity() {
+class SettingsActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val text = buildString {
-            appendLine("BiliMorphe")
-            appendLine()
-            appendLine("LSPosed runtime module for ${Patches.BILI_PACKAGE}.")
-            appendLine("Version: ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})")
-            appendLine()
-            append("No settings yet.")
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(android.R.id.content, SettingsFragment())
+                .commit()
         }
-
-        val view = TextView(this).apply {
-            this.text = text
-            setPadding(64, 120, 64, 64)
-            textSize = 15f
-            setTextIsSelectable(true)
-        }
-
-        setContentView(ScrollView(this).apply { addView(view) })
     }
 }

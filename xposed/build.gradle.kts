@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
@@ -49,6 +50,8 @@ dependencies {
     implementation(projects.integrations.app)
     implementation(libs.libxposed.service)
     implementation(libs.dexkit)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.preference)
     compileOnly(libs.xposed.api)
     compileOnly(libs.libxposed.api)
 }

@@ -10,3 +10,7 @@ build/
 /.idea/*
 !/.idea/codeStyles
 .kotlin
+
+# python
+__pycache__/
+*.pyc

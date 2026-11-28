@@ -1,4 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BiliMorphe</string>
+
+    <!-- 分组标题 -->
+    <string name="bilimorphe_group_ai">AI 功能</string>
+    <string name="bilimorphe_group_mini">小窗与迷你播放</string>
+    <string name="bilimorphe_group_player">播放</string>
+    <string name="bilimorphe_group_purify">广告与净化</string>
+    <string name="bilimorphe_group_ui">界面与外观</string>
+    <string name="bilimorphe_group_legacy">旧版回退</string>
+    <string name="bilimorphe_group_misc">杂项与赞助</string>
+
+    <!-- AI -->
+    <string name="bilimorphe_category_ai_subtitle_translation_title">AI 字幕翻译</string>
+    <string name="bilimorphe_ai_subtitle_translation_prompt_title">字幕翻译提示词</string>
+    <string name="bilimorphe_category_ai_video_filter_title">AI 视频过滤</string>
+    <string name="bilimorphe_ai_video_filter_enabled_title">启用 AI 视频过滤</string>
+    <string name="bilimorphe_ai_video_filter_enabled_summary">按提示词自动过滤推荐流中的视频</string>
+    <string name="bilimorphe_ai_video_filter_prompt_title">视频过滤提示词</string>
+    <string name="bilimorphe_ai_config_title">AI 服务配置</string>
+    <string name="bilimorphe_ai_config_summary">填写接口地址、模型与密钥；未配置时 AI 功能不生效</string>
+
+    <!-- SponsorBlock -->
+    <string name="bilimorphe_sb_category_title">跳过类别</string>
+    <string name="bilimorphe_sb_category_summary">选择 SponsorBlock 要跳过的片段类别</string>
+    <string name="bilimorphe_skip_reward_ad_title">跳过激励广告</string>
+    <string name="bilimorphe_skip_reward_ad_summary">自动跳过视频内的激励广告片段</string>
+
+    <!-- 小窗 / 迷你 -->
+    <string name="bilimorphe_always_mini_play_title">始终小窗播放</string>
+    <string name="bilimorphe_mini_danmaku_title">小窗显示弹幕</string>
+    <string name="bilimorphe_mini_follow_full_title">小窗跟随全屏</string>
+    <string name="bilimorphe_mini_subtitle_title">小窗显示字幕</string>
+    <string name="bilimorphe_not_suicide_title">禁用自杀进程</string>
+    <string name="bilimorphe_not_suicide_summary">阻止宿主进程自行结束进程</string>
+
+    <!-- 播放 -->
+    <string name="bilimorphe_prefer_lossless_title">优先无损音质</string>
+    <string name="bilimorphe_prefer_lossless_summary">可用时优先请求无损音频流</string>
+    <string name="bilimorphe_release_audio_focus_title">释放音频焦点</string>
+    <string name="bilimorphe_release_audio_focus_summary">小窗或后台播放时释放音频焦点</string>
+    <string name="bilimorphe_clear_audio_title">播放前清空音频</string>
+
+    <!-- 广告 / 净化 -->
+    <string name="bilimorphe_block_play_pause_ad_title">拦截播控广告</string>
+    <string name="bilimorphe_hide_live_banner_title">隐藏直播横幅</string>
+    <string name="bilimorphe_block_comment_op_search_title">隐藏评论搜索入口</string>
+    <string name="bilimorphe_block_comment_rating_title">隐藏评论评分</string>
+
+    <!-- 界面 / 外观 / 系统 -->
+    <string name="bilimorphe_block_activity_label_title">隐藏 Activity 标签</string>
+    <string name="bilimorphe_block_activity_label_summary">任务列表中不显示当前页面名称</string>
+    <string name="bilimorphe_block_back_title">拦截误触返回</string>
+    <string name="bilimorphe_block_back_summary">详情页手势返回时优先收起而非直接退出</string>
+    <string name="bilimorphe_direct_owner_space_title">直达 UP 空间</string>
+    <string name="bilimorphe_disable_coloros_transitions_title">禁用 ColorOS 转场</string>
+    <string name="bilimorphe_disable_comm_skin_title">禁用商业皮肤</string>
+    <string name="bilimorphe_disable_hot_patch_title">禁用热修复</string>
+    <string name="bilimorphe_disable_hot_patch_summary">阻止宿主加载热修复补丁，避免 Hook 被覆盖</string>
+    <string name="bilimorphe_force_tablet_mode_title">强制平板模式</string>
+    <string name="bilimorphe_pic_no_fold_title">图片不折叠</string>
+    <string name="bilimorphe_pic_no_fold_summary">长图在动态与详情页完整展开</string>
+    <string name="bilimorphe_remove_video_screenshot_watermark_title">截图去水印</string>
+    <string name="bilimorphe_show_sex_title">显示性别</string>
+    <string name="bilimorphe_prefer_bottom_tab_title">优先底部标签栏</string>
+    <string name="bilimorphe_category_danmaku_title">弹幕设置</string>
+
+    <!-- 旧版回退 -->
+    <string name="bilimorphe_force_old_comments_title">强制旧版评论区</string>
+    <string name="bilimorphe_force_old_favorite_title">强制旧版收藏夹</string>
+
+    <!-- 杂项 -->
+    <string name="bilimorphe_live_no_block_title">直播不拦截</string>
+    <string name="bilimorphe_report_title">问题反馈</string>
+    <string name="bilimorphe_support_title">支持项目</string>
+    <string name="bilimorphe_hidden_features_group_title">显示隐藏功能</string>
 </resources>
