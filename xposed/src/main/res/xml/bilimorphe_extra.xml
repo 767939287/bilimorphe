@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 补充入口：1.23.3 中由自定义 Dialog/Fragment 承载的 54 个设置项，
+     这里统一用标准 Preference 呈现，键名与 integrations Settings 一致。 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="补充设置项（54）">
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="show_hint"
+            android:title="show_hint" />
+        <EditTextPreference
+            android:key="default_playback_speed"
+            android:title="default_playback_speed" />
+        <EditTextPreference
+            android:key="long_press_playback_speed"
+            android:title="long_press_playback_speed" />
+        <EditTextPreference
+            android:key="playback_speed_override"
+            android:title="playback_speed_override" />
+        <EditTextPreference
+            android:key="access_key_th"
+            android:title="access_key_th" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="home_filter_apply_to_relate"
+            android:title="home_filter_apply_to_relate" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="home_filter_apply_to_popular"
+            android:title="home_filter_apply_to_popular" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="home_filter_apply_to_story"
+            android:title="home_filter_apply_to_story" />
+        <EditTextPreference
+            android:key="hide_low_play_count_recommend_limit"
+            android:title="hide_low_play_count_recommend_limit" />
+        <EditTextPreference
+            android:key="hide_short_duration_recommend_limit"
+            android:title="hide_short_duration_recommend_limit" />
+        <EditTextPreference
+            android:key="hide_long_duration_recommend_limit"
+            android:title="hide_long_duration_recommend_limit" />
+        <EditTextPreference
+            android:key="hide_short_duration_story_limit"
+            android:title="hide_short_duration_story_limit" />
+        <EditTextPreference
+            android:key="hide_long_duration_story_limit"
+            android:title="hide_long_duration_story_limit" />
+        <EditTextPreference
+            android:key="home_filter_keywords_title"
+            android:title="home_filter_keywords_title" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="home_filter_title_regex_mode"
+            android:title="home_filter_title_regex_mode" />
+        <EditTextPreference
+            android:key="home_filter_keywords_reason"
+            android:title="home_filter_keywords_reason" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="home_filter_reason_regex_mode"
+            android:title="home_filter_reason_regex_mode" />
+        <EditTextPreference
+            android:key="home_filter_keywords_uid"
+            android:title="home_filter_keywords_uid" />
+        <EditTextPreference
+            android:key="home_filter_keywords_up"
+            android:title="home_filter_keywords_up" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="home_filter_up_regex_mode"
+            android:title="home_filter_up_regex_mode" />
+        <EditTextPreference
+            android:key="home_filter_keywords_category"
+            android:title="home_filter_keywords_category" />
+        <EditTextPreference
+            android:key="home_filter_keywords_channel"
+            android:title="home_filter_keywords_channel" />
+        <EditTextPreference
+            android:key="customize_dynamic_keyword_content"
+            android:title="customize_dynamic_keyword_content" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="dynamic_content_regex_mode"
+            android:title="dynamic_content_regex_mode" />
+        <EditTextPreference
+            android:key="customize_dynamic_keyword_upname"
+            android:title="customize_dynamic_keyword_upname" />
+        <EditTextPreference
+            android:key="customize_dynamic_keyword_uid"
+            android:title="customize_dynamic_keyword_uid" />
+        <EditTextPreference
+            android:key="customize_dynamic_keyword_topic"
+            android:title="customize_dynamic_keyword_topic" />
+        <EditTextPreference
+            android:key="block_comment_uid"
+            android:title="block_comment_uid" />
+        <EditTextPreference
+            android:key="block_comment_up"
+            android:title="block_comment_up" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="block_comment_up_regex_mode"
+            android:title="block_comment_up_regex_mode" />
+        <EditTextPreference
+            android:key="block_comment_content"
+            android:title="block_comment_content" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="block_comment_content_regex_mode"
+            android:title="block_comment_content_regex_mode" />
+        <EditTextPreference
+            android:key="block_comment_up_level"
+            android:title="屏蔽用户等级过低的评论" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="purify_search"
+            android:title="purify_search" />
+        <EditTextPreference
+            android:key="filter_search_content"
+            android:title="filter_search_content" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="filter_search_content_regex"
+            android:title="filter_search_content_regex" />
+        <EditTextPreference
+            android:key="filter_search_up"
+            android:title="filter_search_up" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="filter_search_up_regex"
+            android:title="filter_search_up_regex" />
+        <EditTextPreference
+            android:key="filter_search_uid"
+            android:title="filter_search_uid" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="custom_subtitle"
+            android:title="custom_subtitle" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="subtitle_remove_bg"
+            android:title="subtitle_remove_bg" />
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="subtitle_bold"
+            android:title="subtitle_bold" />
+        <EditTextPreference
+            android:key="subtitle_font_size_portrait"
+            android:title="subtitle_font_size_portrait" />
+        <EditTextPreference
+            android:key="subtitle_font_size_landscape"
+            android:title="subtitle_font_size_landscape" />
+        <EditTextPreference
+            android:key="subtitle_font_color2"
+            android:title="subtitle_font_color2" />
+        <EditTextPreference
+            android:key="subtitle_stroke_color"
+            android:title="subtitle_stroke_color" />
+        <EditTextPreference
+            android:key="subtitle_stroke_width"
+            android:title="subtitle_stroke_width" />
+        <EditTextPreference
+            android:key="subtitle_offset"
+            android:title="subtitle_offset" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="subtitle_import_save"
+            android:title="导入及保存字幕" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="lossless_enabled"
+            android:title="lossless_enabled" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="bg_playing_enabled"
+            android:title="bg_playing_enabled" />
+        <EditTextPreference
+            android:key="bili_custom_color"
+            android:title="bili_custom_color" />
+        <EditTextPreference
+            android:key="skin_json"
+            android:title="skin_json" />
+        <EditTextPreference
+            android:key="selected_playback_speed"
+            android:title="selected_playback_speed" />
+    </PreferenceCategory>
+</PreferenceScreen>

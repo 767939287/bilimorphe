@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <app.revanced.bilibili.widget.CheckBoxGroupPreference
+        android:entries="@array/biliroaming_filter_story_entries"
+        android:entryValues="@array/biliroaming_filter_story_values"
+        android:key="filter_story"
+        android:persistent="true"
+        android:title="@string/biliroaming_filter_by_type_hint" />
+</androidx.preference.PreferenceScreen>

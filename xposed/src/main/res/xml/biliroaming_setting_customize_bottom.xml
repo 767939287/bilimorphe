@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <app.revanced.bilibili.widget.CheckBoxGroupPreference
+        android:key="showing_bottom_items"
+        android:persistent="true" />
+</androidx.preference.PreferenceScreen>

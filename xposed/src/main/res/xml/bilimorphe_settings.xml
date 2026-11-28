@@ -6,6 +6,53 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
+        android:key="category_unlock"
+        android:title="@string/bilimorphe_group_unlock">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="main_func"
+            android:summary="@string/bilimorphe_main_func_summary"
+            android:title="@string/bilimorphe_main_func_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:dependency="main_func"
+            android:key="allow_download"
+            android:title="@string/bilimorphe_allow_download_title" />
+
+        <EditTextPreference
+            android:dependency="main_func"
+            android:key="tw_server"
+            android:title="@string/bilimorphe_tw_server_title" />
+
+        <EditTextPreference
+            android:dependency="main_func"
+            android:key="hk_server"
+            android:title="@string/bilimorphe_hk_server_title" />
+
+        <EditTextPreference
+            android:dependency="main_func"
+            android:key="cn_server"
+            android:title="@string/bilimorphe_cn_server_title" />
+
+        <EditTextPreference
+            android:dependency="main_func"
+            android:key="th_server"
+            android:title="@string/bilimorphe_th_server_title" />
+
+        <EditTextPreference
+            android:dependency="main_func"
+            android:key="upos_host"
+            android:title="@string/bilimorphe_upos_host_title" />
+
+        <EditTextPreference
+            android:dependency="main_func"
+            android:key="access_key_main"
+            android:title="@string/bilimorphe_access_key_main_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="category_ai_video_filter"
         android:title="@string/bilimorphe_group_ai">
 
@@ -85,11 +132,65 @@
             android:defaultValue="false"
             android:key="clear_audio"
             android:title="@string/bilimorphe_clear_audio_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="time_airborne"
+            android:summary="@string/bilimorphe_time_airborne_summary"
+            android:title="@string/bilimorphe_time_airborne_title" />
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="category_purify"
         android:title="@string/bilimorphe_group_purify">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="block_up_rcmd_ads"
+            android:summary="@string/bilimorphe_block_up_rcmd_ads_summary"
+            android:title="@string/bilimorphe_block_up_rcmd_ads_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="block_follow_button"
+            android:summary="@string/bilimorphe_block_follow_button_summary"
+            android:title="@string/bilimorphe_block_follow_button_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="remove_vip_section"
+            android:summary="@string/bilimorphe_remove_vip_section_summary"
+            android:title="@string/bilimorphe_remove_vip_section_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="fake_not_in_multi_window"
+            android:title="@string/bilimorphe_fake_not_in_multi_window_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="forbid_live_room_auto_float"
+            android:title="@string/bilimorphe_forbid_live_room_auto_float_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="forbid_live_room_slide_left"
+            android:title="@string/bilimorphe_forbid_live_room_slide_left_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="disable_live_room_double_click"
+            android:title="@string/bilimorphe_disable_live_room_double_click_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="forbid_switch_live_room"
+            android:title="@string/bilimorphe_forbid_switch_live_room_title" />
+
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="text_unfold"
+            android:title="@string/bilimorphe_text_unfold_title" />
 
         <SwitchPreferenceCompat
             android:defaultValue="false"

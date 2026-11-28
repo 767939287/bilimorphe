@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 1.23.3 设置页索引：共 40 个页面，与 integrations Settings 键一一对应。 -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:key="module_extras"
+        android:title="本模块新增功能（1.28.6 独有）"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="bilimorphe_settings" />
+    </Preference>
+    <Preference
+        android:key="module_extra_settings"
+        android:title="补充设置项（54）"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="bilimorphe_extra" />
+    </Preference>
+    <Preference
+        android:key="about"
+        android:title="关于"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_about" />
+    </Preference>
+    <Preference
+        android:key="backup"
+        android:title="备份与恢复"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_backup" />
+    </Preference>
+    <Preference
+        android:key="block_follow"
+        android:title="关注按钮"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_block_follow" />
+    </Preference>
+    <Preference
+        android:key="cover_ratio"
+        android:title="封面比例"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_cover_ratio" />
+    </Preference>
+    <Preference
+        android:key="customize_bottom"
+        android:title="底栏"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_customize_bottom" />
+    </Preference>
+    <Preference
+        android:key="customize_drawer"
+        android:title="侧滑栏"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_customize_drawer" />
+    </Preference>
+    <Preference
+        android:key="customize_dynamic"
+        android:title="动态"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_customize_dynamic" />
+    </Preference>
+    <Preference
+        android:key="customize_home"
+        android:title="首页定制"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_customize_home" />
+    </Preference>
+    <Preference
+        android:key="customize_live_room"
+        android:title="直播间"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_customize_live_room" />
+    </Preference>
+    <Preference
+        android:key="customize_mine"
+        android:title="我的页"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_customize_mine" />
+    </Preference>
+    <Preference
+        android:key="customize_player"
+        android:title="播放器定制"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_customize_player" />
+    </Preference>
+    <Preference
+        android:key="customize_search"
+        android:title="搜索页"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_customize_search" />
+    </Preference>
+    <Preference
+        android:key="customize_space"
+        android:title="用户空间"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_customize_space" />
+    </Preference>
+    <Preference
+        android:key="customize_video_detail"
+        android:title="视频详情页"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_customize_video_detail" />
+    </Preference>
+    <Preference
+        android:key="display_size"
+        android:title="显示尺寸"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_display_size" />
+    </Preference>
+    <Preference
+        android:key="external_downloader"
+        android:title="外部下载器"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_external_downloader" />
+    </Preference>
+    <Preference
+        android:key="filter_comment"
+        android:title="评论过滤"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_filter_comment" />
+    </Preference>
+    <Preference
+        android:key="filter_dynamic_by_type"
+        android:title="动态按类型过滤"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_filter_dynamic_by_type" />
+    </Preference>
+    <Preference
+        android:key="filter_home"
+        android:title="首页过滤"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_filter_home" />
+    </Preference>
+    <Preference
+        android:key="filter_home_by_type"
+        android:title="首页按类型过滤"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_filter_home_by_type" />
+    </Preference>
+    <Preference
+        android:key="filter_popular"
+        android:title="热门过滤"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_filter_popular" />
+    </Preference>
+    <Preference
+        android:key="filter_search_type"
+        android:title="搜索按类型过滤"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_filter_search_type" />
+    </Preference>
+    <Preference
+        android:key="filter_story"
+        android:title="故事过滤"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_filter_story" />
+    </Preference>
+    <Preference
+        android:key="filter_story_by_type"
+        android:title="故事按类型过滤"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_filter_story_by_type" />
+    </Preference>
+    <Preference
+        android:key="full_screen_quality"
+        android:title="全屏画质"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_full_screen_quality" />
+    </Preference>
+    <Preference
+        android:key="full_screen_quality_mobile"
+        android:title="全屏画质（移动网络）"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_full_screen_quality_mobile" />
+    </Preference>
+    <Preference
+        android:key="half_screen_quality"
+        android:title="半屏画质"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_half_screen_quality" />
+    </Preference>
+    <Preference
+        android:key="home_tab"
+        android:title="首页标签"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_home_tab" />
+    </Preference>
+    <Preference
+        android:key="live_popups"
+        android:title="直播弹窗"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_live_popups" />
+    </Preference>
+    <Preference
+        android:key="misc"
+        android:title="杂项"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_misc" />
+    </Preference>
+    <Preference
+        android:key="player_version"
+        android:title="播放器版本"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_player_version" />
+    </Preference>
+    <Preference
+        android:key="purify_search_types"
+        android:title="搜索结果净化"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_purify_search_types" />
+    </Preference>
+    <Preference
+        android:key="space"
+        android:title="空间页"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_space" />
+    </Preference>
+    <Preference
+        android:key="story_ui_style"
+        android:title="故事 UI 风格"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_story_ui_style" />
+    </Preference>
+    <Preference
+        android:key="subtitle_translate_server"
+        android:title="字幕翻译服务"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_subtitle_translate_server" />
+    </Preference>
+    <Preference
+        android:key="tool"
+        android:title="工具"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_tool" />
+    </Preference>
+    <Preference
+        android:key="unlock_area_limit"
+        android:title="解锁区域限制"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_unlock_area_limit" />
+    </Preference>
+    <Preference
+        android:key="upos"
+        android:title="UPOS 播放源"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_upos" />
+    </Preference>
+    <Preference
+        android:key="video_detail_filter"
+        android:title="视频详情过滤"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_video_detail_filter" />
+    </Preference>
+    <Preference
+        android:key="video_popups"
+        android:title="视频弹窗"
+        android:fragment="app.bilimorphe.settings.SubSettingsFragment">
+        <extra android:name="page" android:value="biliroaming_setting_video_popups" />
+    </Preference>
+</PreferenceScreen>

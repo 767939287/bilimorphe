@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <tv.danmaku.bili.widget.RadioGroupPreference
+        android:key="display_size"
+        android:persistent="true"
+        android:title="@string/biliroaming_display_size_summary" />
+</androidx.preference.PreferenceScreen>

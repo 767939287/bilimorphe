@@ -10,6 +10,7 @@ import app.bilimorphe.settings.SettingsKeys
 import app.bilimorphe.util.Logger
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedBridge
+import org.luckypray.dexkit.DexKitBridge
 import java.lang.reflect.Method
 
 /**
@@ -21,23 +22,17 @@ import java.lang.reflect.Method
  *
  * 本项目重写为运行时 hook：调用前把 drawable 参数替换为 null，宿主自然跳过水印绘制。
  *
- * 注意：该方法的宿主类名在当前 9.20.0 中为混淆名 `defpackage.vdv0`，跨版本会变。
- * 这里按「类名候选 + 方法签名」双重匹配，签名条件为：
- * 静态、返回 Bitmap、参数依次为 (Bitmap, Rect, Bitmap, Drawable, String, DisplayMetrics, boolean)。
- * 后续应替换为 DexKit 特征定位（见 docs/roadmap.md 第 8 项）。
+ * 定位策略：该方法所在类在默认包且名字每版都变（9.20.0 = `vdv0`，9.21.0 = `tzu0`），
+ * 所以**以签名为主**：用 DexKit 匹配「7 参数、index3 为 Drawable、返回 Bitmap」的方法，
+ * 类名候选仅作 DexKit 不可用时的回退。
  */
 object RemoveVideoScreenshotWatermarkFeature : Patch(
     name = "Remove video screenshot watermark",
     description = "Drops the watermark drawable when the host composites screenshots.",
 ) {
 
-    /**
-     * 已知类名候选。宿主该类的真实描述符是默认包 `Lvdv0;`（jadx 显示为 `defpackage.vdv0`），
-     * 运行时类名不带包名，因此这里写 `vdv0`。
-     */
-    private val CLASS_CANDIDATES = listOf(
-        "vdv0",
-    )
+    /** DexKit 不可用时的回退类名（逐版本追加）。 */
+    private val CLASS_FALLBACKS = listOf("vdv0", "tzu0")
 
     private const val DRAWABLE_ARG_INDEX = 3
 
@@ -47,10 +42,52 @@ object RemoveVideoScreenshotWatermarkFeature : Patch(
             return
         }
 
+        val methods = mutableListOf<Method>()
+
+        // 1) DexKit 按签名定位（跨版本稳定）
+        runCatching {
+            val bridge = DexKitBridge.create(engine.hostApkPath)
+            try {
+                bridge.findMethod {
+                    matcher {
+                        returnType = "android.graphics.Bitmap"
+                        paramCount = 7
+                        paramTypes = listOf(
+                            "android.graphics.Bitmap",
+                            "android.graphics.Rect",
+                            "android.graphics.Bitmap",
+                            "android.graphics.drawable.Drawable",
+                            "java.lang.String",
+                            "android.util.DisplayMetrics",
+                            "boolean",
+                        )
+                    }
+                }.forEach { data ->
+                    runCatching { data.getMethodInstance(engine.classLoader) }
+                        .onSuccess { methods.add(it) }
+                        .onFailure { Logger.i("[watermark] resolve failed: ${data.className}") }
+                }
+            } finally {
+                runCatching { bridge.close() }
+            }
+        }.onFailure { Logger.e("[watermark] dexkit locate failed", it) }
+
+        // 2) 回退：类名候选 + 签名二次确认
+        if (methods.isEmpty()) {
+            Logger.i("[watermark] dexkit found nothing, fallback to class candidates")
+            for (className in CLASS_FALLBACKS) {
+                val cls = engine.findClass(className) ?: continue
+                findCompositor(cls)?.let { methods.add(it) }
+            }
+        }
+
+        if (methods.isEmpty()) {
+            Logger.i("[watermark] no target matched")
+            return
+        }
+
         var hooked = 0
-        for (className in CLASS_CANDIDATES) {
-            val cls = engine.findClass(className) ?: continue
-            val method = findCompositor(cls) ?: continue
+        for (method in methods.distinct()) {
             runCatching {
                 XposedBridge.hookMethod(method, object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
@@ -62,15 +99,10 @@ object RemoveVideoScreenshotWatermarkFeature : Patch(
                     }
                 })
                 hooked++
-                Logger.i("[watermark] hooked ${cls.name}#${method.name}")
-            }.onFailure { Logger.e("[watermark] hook failed: ${cls.name}", it) }
+                Logger.i("[watermark] hooked ${method.declaringClass.name}#${method.name}")
+            }.onFailure { Logger.e("[watermark] hook failed", it) }
         }
-
-        if (hooked == 0) {
-            Logger.i("[watermark] no target matched (class candidates: $CLASS_CANDIDATES)")
-        } else {
-            Logger.i("[watermark] hooked=$hooked")
-        }
+        Logger.i("[watermark] hooked=$hooked")
     }
 
     /** 严格按签名匹配截图合成方法。 */

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <app.revanced.bilibili.widget.CheckBoxGroupPreference
+        android:key="customize_space"
+        android:persistent="true"
+        android:title="@string/biliroaming_customize_space_summary"
+        android:entries="@array/biliroaming_space_entries"
+        android:entryValues="@array/biliroaming_space_values" />
+</androidx.preference.PreferenceScreen>

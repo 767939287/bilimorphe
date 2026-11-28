@@ -15,22 +15,6 @@ import app.bilimorphe.R
 class SettingsFragment : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.bilimorphe_settings, rootKey)
-
-        val placeholders = listOf(
-            SettingsKeys.AI_CONFIG,
-            SettingsKeys.AI_SUBTITLE_TRANSLATION_PROMPT,
-            SettingsKeys.AI_VIDEO_FILTER_PROMPT,
-            SettingsKeys.SB_CATEGORY,
-            SettingsKeys.CATEGORY_DANMAKU,
-            SettingsKeys.REPORT,
-            SettingsKeys.SUPPORT,
-        )
-        for (key in placeholders) {
-            findPreference<Preference>(key)?.setOnPreferenceClickListener {
-                Toast.makeText(requireContext(), "「${it.title}」尚未实现", Toast.LENGTH_SHORT).show()
-                true
-            }
-        }
+        setPreferencesFromResource(R.xml.bilimorphe_index, rootKey)
     }
 }

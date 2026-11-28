@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <app.revanced.bilibili.widget.CheckBoxGroupPreference
+        android:key="customize_home_recommend"
+        android:persistent="true"
+        android:title="@string/biliroaming_filter_by_type_hint"
+        android:entries="@array/biliroaming_home_recommend_entries"
+        android:entryValues="@array/biliroaming_home_recommend_values" />
+</androidx.preference.PreferenceScreen>

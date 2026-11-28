@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <app.revanced.bilibili.widget.CheckBoxGroupPreference
+        android:entries="@array/biliroaming_video_popup_entries"
+        android:entryValues="@array/biliroaming_video_popup_values"
+        android:key="remove_video_popups"
+        android:persistent="true" />
+</androidx.preference.PreferenceScreen>
