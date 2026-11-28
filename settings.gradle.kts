@@ -17,9 +17,11 @@ dependencyResolutionManagement {
     val gprUser = settings.providers.gradleProperty("gpr.user")
     val gprKey = settings.providers.gradleProperty("gpr.key")
     repositories {
+        // google() 放最前：androidx / AGP 依赖优先从 Google 源解析，
+        // 避免 Maven Central 限流（HTTP 429）导致整个仓库被 Gradle 禁用。
+        google()
         mavenCentral()
         mavenLocal()
-        google()
         maven { url = uri("https://jitpack.io") }
         maven(url = "https://api.xposed.info")
         maven {
