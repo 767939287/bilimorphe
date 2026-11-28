@@ -3,6 +3,7 @@ package app.bilimorphe.patch.feature
 import app.bilimorphe.PatchEngine
 import app.bilimorphe.patch.Patch
 import app.bilimorphe.settings.ModulePrefs
+import app.bilimorphe.settings.SettingsKeys
 import app.bilimorphe.util.Logger
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedBridge
@@ -25,8 +26,6 @@ object FakeMultiWindowFeature : Patch(
     description = "Reports the player pages as not being in multi-window mode.",
 ) {
 
-    private const val SETTING_KEY = "fake_not_in_multi_window"
-
     private val ACTIVITIES = setOf(
         "com.bilibili.ship.theseus.playlist.UnitedPlaylistActivity",
         "com.bilibili.ship.theseus.detail.UnitedBizDetailsActivity",
@@ -37,7 +36,7 @@ object FakeMultiWindowFeature : Patch(
     )
 
     override fun applyTo(engine: PatchEngine) {
-        if (!ModulePrefs.isEnabled(SETTING_KEY)) {
+        if (!ModulePrefs.isEnabled(SettingsKeys.FAKE_NOT_IN_MULTI_WINDOW)) {
             Logger.i("[fake_multi_window] off, skip")
             return
         }

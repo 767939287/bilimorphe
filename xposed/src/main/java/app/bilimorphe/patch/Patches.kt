@@ -23,6 +23,7 @@ import app.bilimorphe.patch.feature.SettingsEntryFeature
 import app.bilimorphe.patch.feature.RemoveVideoScreenshotWatermarkFeature
 import app.bilimorphe.patch.feature.TextUnfoldFeature
 import app.bilimorphe.patch.feature.TimeAirborneFeature
+import app.bilimorphe.patch.feature.UidCopyFeature
 
 /**
  * Patch registry. The order matters: the bridge patch must run first so the
@@ -58,6 +59,7 @@ object Patches {
         AreaUnlockFeature,
         SettingsEntryFeature,
         DpiFeature,
+        UidCopyFeature,
     )
 
     fun forPackage(packageName: String): List<Patch>? =

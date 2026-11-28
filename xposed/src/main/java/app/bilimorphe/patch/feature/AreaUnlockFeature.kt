@@ -4,6 +4,7 @@ import android.app.Application
 import app.bilimorphe.PatchEngine
 import app.bilimorphe.patch.Patch
 import app.bilimorphe.settings.ModulePrefs
+import app.bilimorphe.settings.SettingsKeys
 import app.bilimorphe.util.Logger
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XposedBridge
@@ -38,18 +39,18 @@ object AreaUnlockFeature : Patch(
 
     /** 布尔项：模块键 → integrations 字段。 */
     private val BOOL_MAP = listOf(
-        "main_func" to "UnlockAreaLimit",
-        "allow_download" to "AllowDownload",
+        SettingsKeys.MAIN_FUNC to "UnlockAreaLimit",
+        SettingsKeys.ALLOW_DOWNLOAD to "AllowDownload",
     )
 
     /** 字符串项：模块键 → integrations 字段。 */
     private val STRING_MAP = listOf(
-        "tw_server" to "TaiWanServer",
-        "hk_server" to "HongKongServer",
-        "cn_server" to "ChinaServer",
-        "th_server" to "ThailandServer",
-        "upos_host" to "UposHost",
-        "access_key_main" to "AccessKeyMain",
+        SettingsKeys.TW_SERVER to "TaiWanServer",
+        SettingsKeys.HK_SERVER to "HongKongServer",
+        SettingsKeys.CN_SERVER to "ChinaServer",
+        SettingsKeys.TH_SERVER to "ThailandServer",
+        SettingsKeys.UPOS_HOST to "UposHost",
+        SettingsKeys.ACCESS_KEY_MAIN to "AccessKeyMain",
     )
 
     override fun applyTo(engine: PatchEngine) {
@@ -95,7 +96,7 @@ object AreaUnlockFeature : Patch(
             if (save(settingsClass, fieldName, value, String::class.java)) applied++
         }
 
-        Logger.i("[area_unlock] synced=$applied unlock=${ModulePrefs.isEnabled("main_func")}")
+        Logger.i("[area_unlock] synced=$applied unlock=${ModulePrefs.isEnabled(SettingsKeys.MAIN_FUNC)}")
     }
 
     /**

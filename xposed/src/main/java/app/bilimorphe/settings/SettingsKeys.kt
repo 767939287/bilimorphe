@@ -64,6 +64,9 @@ object SettingsKeys {
 
     /** 1.23.3 能力（简化）：评论/动态文本不折叠。 */
     const val TEXT_UNFOLD = "text_unfold"
+
+    /** 1.23.3 键名：复制 UID 时去掉前缀。 */
+    const val UID_COPY_NO_PREFIX = "uid_copy_no_prefix"
     const val BLOCK_PLAY_PAUSE_AD = "block_play_pause_ad"
     const val HIDE_LIVE_BANNER = "hide_live_banner"
     const val BLOCK_COMMENT_OP_SEARCH = "block_comment_op_search"
@@ -107,6 +110,7 @@ object SettingsKeys {
         DISABLE_LIVE_ROOM_DOUBLE_CLICK,
         FORBID_SWITCH_LIVE_ROOM,
         TEXT_UNFOLD,
+        UID_COPY_NO_PREFIX,
         AI_VIDEO_FILTER_ENABLED,
         SKIP_REWARD_AD,
         ALWAYS_MINI_PLAY,

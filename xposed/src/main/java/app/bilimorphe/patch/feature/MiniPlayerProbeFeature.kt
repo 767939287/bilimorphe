@@ -37,17 +37,40 @@ object MiniPlayerProbeFeature : Patch(
         SettingsKeys.AI_VIDEO_FILTER_ENABLED to listOf("ai_video_filter", "aiVideoFilter"),
     )
 
+    /**
+     * 9.21.0 实测存在的小窗容器类（`kntr.common.miniplayer` 包）。
+     * 该包方法名全部混淆，因此改为直接观测整条调用链：
+     * 实机跑一次即可看出 弹幕 / 字幕 / 跟随全屏 分别走哪个方法。
+     */
+    private val MINI_CONTAINER_CLASSES = listOf(
+        "kntr.common.miniplayer.container.MiniPlayerContainer",
+        "com.bilibili.mini.player.biz.DefaultMiniPlayerBizManager",
+    )
+
     /** 每个特征最多观测的候选方法数，防止一次挂太多 hook。 */
     private const val MAX_CANDIDATES = 3
+
+    /** 每个类最多观测的方法数（容器类方法很多，限制上限）。 */
+    private const val MAX_CLASS_METHODS = 12
 
     override fun applyTo(engine: PatchEngine) {
         val targets = PROBES.mapNotNull { (key, hints) ->
             if (ModulePrefs.isEnabled(key)) key to hints else null
         }
-        if (targets.isEmpty()) {
+        val miniEnabled = ModulePrefs.isEnabled(SettingsKeys.ALWAYS_MINI_PLAY) ||
+            ModulePrefs.isEnabled(SettingsKeys.MINI_DANMAKU) ||
+            ModulePrefs.isEnabled(SettingsKeys.MINI_SUBTITLE) ||
+            ModulePrefs.isEnabled(SettingsKeys.MINI_FOLLOW_FULL)
+
+        if (targets.isEmpty() && !miniEnabled) {
             Logger.i("[probe] no toggle enabled, skip")
             return
         }
+
+        // 1) 小窗容器整链观测（方法名混淆，只能靠调用序列定位）
+        if (miniEnabled) probeMiniContainer(engine)
+
+        if (targets.isEmpty()) return
 
         val bridge = DexKitBridge.create(engine.hostApkPath)
         try {
@@ -85,5 +108,41 @@ object MiniPlayerProbeFeature : Patch(
         } finally {
             runCatching { bridge.close() }
         }
+    }
+
+    /**
+     * 监测小窗容器的调用链。
+     *
+     * 9.21.0 的 `kntr.common.miniplayer.container.MiniPlayerContainer` 方法名全部混淆
+     * （`A`/`b`/`c`……），无法从名字判断哪个是弹幕 / 字幕 / 跟随全屏。
+     * 这里直接观测整个类的方法调用序列，实机一次即可定位。
+     */
+    private fun probeMiniContainer(engine: PatchEngine) {
+        var hooked = 0
+        for (className in MINI_CONTAINER_CLASSES) {
+            val cls = engine.findClass(className)
+            if (cls == null) {
+                Logger.i("[probe:mini] class missing: $className")
+                continue
+            }
+            val methods = cls.declaredMethods
+                .filter { !java.lang.reflect.Modifier.isAbstract(it.modifiers) }
+                .take(MAX_CLASS_METHODS)
+            for (method in methods) {
+                runCatching {
+                    method.isAccessible = true
+                    XposedBridge.hookMethod(method, object : XC_MethodHook() {
+                        override fun afterHookedMethod(param: MethodHookParam) {
+                            Logger.i(
+                                "[probe:mini] ${className.substringAfterLast('.')}#${param.method.name}" +
+                                    " args=${param.args.size} result=${param.result}"
+                            )
+                        }
+                    })
+                    hooked++
+                }.onFailure { Logger.e("[probe:mini] hook failed: ${method.name}", it) }
+            }
+        }
+        Logger.i("[probe:mini] watching $hooked methods")
     }
 }

@@ -60,6 +60,9 @@ object IntegrationCallFeature : Patch(
 
         /** 用指定参数调 integrations，忽略返回值（如就地修改 Bundle）。 */
         CALL_ARG,
+
+        /** 用 this + 指定参数调 integrations（如需要 Fragment 与数据对象的方法）。 */
+        CALL_THIS_AND_ARG,
     }
 
     /**
@@ -194,6 +197,20 @@ object IntegrationCallFeature : Patch(
             mode = Mode.CALL_ARG,
             argIndex = 1,
         ),
+
+        // 数字格式化（1.23.3 NumberFormatPatch）：我的页绑定账号信息时改写万/亿显示。
+        // 9.21.0 落点：HomeUserCenterFragment.Zf(AccountMine, Z)V（空间页那半的
+        // BiliMemberCard 方法在 9.21.0 已不存在）。
+        Rule(
+            key = null,
+            hostClass = "tv.danmaku.bili.ui.main2.mine.HomeUserCenterFragment",
+            methodName = "Zf",
+            paramCount = 2,
+            integrationsClass = "app.revanced.bilibili.patches.NumberFormatPatch",
+            integrationsMethod = "onMineBindAccountState",
+            mode = Mode.CALL_THIS_AND_ARG,
+            argIndex = 0,
+        ),
     )
 
     override fun applyTo(engine: PatchEngine) {
@@ -326,6 +343,12 @@ object IntegrationCallFeature : Patch(
                             val arg = param.args.getOrNull(rule.argIndex) ?: return@runCatching
                             implMethod.invoke(null, arg)
                         }.onFailure { Logger.e("[integration_call] ${rule.key}: arg call failed", it) }
+
+                        Mode.CALL_THIS_AND_ARG -> runCatching {
+                            val self = param.thisObject ?: return@runCatching
+                            val arg = param.args.getOrNull(rule.argIndex) ?: return@runCatching
+                            implMethod.invoke(null, self, arg)
+                        }.onFailure { Logger.e("[integration_call] ${rule.key}: this+arg call failed", it) }
 
                         Mode.CALL_WITH_THIS_AFTER -> Unit
 
